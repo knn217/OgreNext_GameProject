@@ -26,24 +26,36 @@ bool* terminate_flag_ptr = new bool;
 void FullScreenToggle(HWND hwnd, int x, int y, UINT keyFlags)
 {
     DWORD dwStyle = GetWindowLong(hwnd, GWL_STYLE);
-    if (dwStyle & WS_OVERLAPPEDWINDOW) {MONITORINFO mi = { sizeof(mi) };
-        if (GetWindowPlacement(hwnd, &g_wpPrev) && GetMonitorInfo(MonitorFromWindow(hwnd, MONITOR_DEFAULTTOPRIMARY), &mi)) 
+    if (dwStyle & WS_POPUP) {
+        MONITORINFO mi = { sizeof(mi) };
+        if (GetWindowPlacement(hwnd, &g_wpPrev) && GetMonitorInfo(MonitorFromWindow(hwnd, MONITOR_DEFAULTTOPRIMARY), &mi))
         {
-            SetWindowLong(hwnd, GWL_STYLE, dwStyle & ~WS_OVERLAPPEDWINDOW);
+            SetWindowLong(hwnd, GWL_STYLE, dwStyle & ~WS_POPUP);
             SetWindowPos(hwnd, HWND_TOP,
-                mi.rcMonitor.left - 3, mi.rcMonitor.top - 3,
-                mi.rcMonitor.right - mi.rcMonitor.left + 6,
-                mi.rcMonitor.bottom - mi.rcMonitor.top + 6,
+                mi.rcMonitor.left, mi.rcMonitor.top,
+                mi.rcMonitor.right - mi.rcMonitor.left,
+                mi.rcMonitor.bottom - mi.rcMonitor.top,
                 SWP_NOOWNERZORDER | SWP_FRAMECHANGED);
         }
     }
-    else 
+    else
     {
-        SetWindowLong(hwnd, GWL_STYLE, dwStyle | WS_OVERLAPPEDWINDOW);
+        SetWindowLong(hwnd, GWL_STYLE, dwStyle | WS_POPUP);
         SetWindowPlacement(hwnd, &g_wpPrev);
         SetWindowPos(hwnd, NULL, 0, 0, 0, 0,
             SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER |
             SWP_NOOWNERZORDER | SWP_FRAMECHANGED);
+    }
+}
+
+
+POINT mouse_cursor;
+
+void OnMouse(HWND hwnd, int x, int y, UINT keyFlags)
+{
+    if (GetCursorPos(&mouse_cursor))
+    {
+        ScreenToClient(hwnd, &mouse_cursor);
     }
 }
 
@@ -72,7 +84,6 @@ void OnInput(HWND hwnd, WPARAM code, HRAWINPUT hRawInput)
             StringCchCat(prefix, ARRAYSIZE(prefix), TEXT("E1 "));
         }
 
-        //TCHAR buffer[256];
         StringCchPrintf(buffer, ARRAYSIZE(buffer),
             TEXT("%p, msg=%04x, vk=%04x, scanCode=%s%02x, %s"),
             input->header.hDevice,
@@ -82,7 +93,6 @@ void OnInput(HWND hwnd, WPARAM code, HRAWINPUT hRawInput)
             input->data.keyboard.MakeCode,
             (input->data.keyboard.Flags & RI_KEY_BREAK)
             ? TEXT("release") : TEXT("press"));
-        //ListBox_AddString(hwnd, buffer);
     }
     DefRawInputProc(&input, 1, sizeof(RAWINPUTHEADER));
     free(input);
@@ -200,6 +210,10 @@ void render_thread(LowLevelOgreNext app, Ogre::Root* m_Root, bool* terminate_fla
             Ogre::StringConverter::toString(startTime / 1000000.0)
             + "\nanimation: "
             + app.mAnyAnimation->getName().getFriendlyText()
+            + "\nmouse:"
+            + Ogre::StringConverter::toString(mouse_cursor.x)
+            + ", "
+            + Ogre::StringConverter::toString(mouse_cursor.y)
             + "\nmulti-keyboard inputs:\n"
             + str);
         app.mAnyAnimation->addTime(render_FrameTime);
@@ -218,6 +232,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT uiMsg, WPARAM wParam, LPARAM lParam)
         HANDLE_MSG(hwnd, WM_DESTROY, OnDestroy);
         HANDLE_MSG(hwnd, WM_PAINT, OnPaint);
         HANDLE_MSG(hwnd, WM_LBUTTONUP, FullScreenToggle);
+        HANDLE_MSG(hwnd, WM_MOUSEMOVE, OnMouse);
         HANDLE_MSG(hwnd, WM_INPUT, OnInput);
     case WM_PRINTCLIENT: OnPrintClient(hwnd, (HDC)wParam); return 0;
     }
@@ -239,7 +254,7 @@ BOOL InitApp(HINSTANCE hInst)
     wc.lpszMenuName = NULL;
     wc.lpszClassName = g_szClassName;
     wc.hIconSm = LoadIcon(NULL, IDI_APPLICATION);
-    if (!RegisterClassEx(&wc)) 
+    if (!RegisterClassEx(&wc))
     {
         MessageBox(NULL, L"Window Registration Failed!", L"Error!", MB_ICONEXCLAMATION | MB_OK);
         return FALSE;
@@ -286,7 +301,7 @@ int main(int argc, const char* argv[])
     if (!InitApp(hInst)) return 0;
 
     // Step 2: Creating the Window
-    hwnd = CreateWindowEx(WS_EX_CLIENTEDGE, g_szClassName, L"The title of my window", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, 240, 120, NULL, NULL, hInst, NULL);
+    hwnd = CreateWindowEx(NULL, g_szClassName, L"The title of my window", WS_POPUP, CW_USEDEFAULT, CW_USEDEFAULT, 240, 120, NULL, NULL, hInst, NULL);
 
     if (hwnd == NULL)
     {
@@ -314,28 +329,28 @@ int main(int argc, const char* argv[])
             SWP_NOOWNERZORDER | SWP_FRAMECHANGED);
     }
     if (fullscreen)
-    {        
-        if (dwStyle & WS_OVERLAPPEDWINDOW) 
+    {
+        if (dwStyle & WS_POPUP)
         {
-            if (GetWindowPlacement(hwnd, &g_wpPrev) && GetMonitorInfo(MonitorFromWindow(hwnd, MONITOR_DEFAULTTOPRIMARY), &mi)) 
+            if (GetWindowPlacement(hwnd, &g_wpPrev) && GetMonitorInfo(MonitorFromWindow(hwnd, MONITOR_DEFAULTTOPRIMARY), &mi))
             {
-                SetWindowLong(hwnd, GWL_STYLE, dwStyle & ~WS_OVERLAPPEDWINDOW);
+                SetWindowLong(hwnd, GWL_STYLE, dwStyle & ~WS_POPUP);
                 SetWindowPos(hwnd, HWND_TOP,
-                    mi.rcMonitor.left - 3, mi.rcMonitor.top - 3,
-                    mi.rcMonitor.right - mi.rcMonitor.left + 6,
-                    mi.rcMonitor.bottom - mi.rcMonitor.top + 6,
+                    mi.rcMonitor.left, mi.rcMonitor.top,
+                    mi.rcMonitor.right - mi.rcMonitor.left,
+                    mi.rcMonitor.bottom - mi.rcMonitor.top,
                     SWP_NOOWNERZORDER | SWP_FRAMECHANGED);
             }
         }
-        else 
+        else
         {
-            SetWindowLong(hwnd, GWL_STYLE, dwStyle | WS_OVERLAPPEDWINDOW);
+            SetWindowLong(hwnd, GWL_STYLE, dwStyle | WS_POPUP);
             SetWindowPlacement(hwnd, &g_wpPrev);
             SetWindowPos(hwnd, NULL, 0, 0, 0, 0,
                 SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER |
                 SWP_NOOWNERZORDER | SWP_FRAMECHANGED);
         }
-    }    
+    }
 
     *terminate_flag_ptr = false;
     std::thread t1(render_thread, app, m_Root, terminate_flag_ptr);
