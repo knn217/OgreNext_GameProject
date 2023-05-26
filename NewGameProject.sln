@@ -1,31 +1,3 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.5.33516.290
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NewGameProject", "NewGameProject\NewGameProject.vcxproj", "{FBAD406B-4EFF-4A8F-9408-8573B121B2AE}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FBAD406B-4EFF-4A8F-9408-8573B121B2AE}.Debug|x64.ActiveCfg = Debug|x64
-		{FBAD406B-4EFF-4A8F-9408-8573B121B2AE}.Debug|x64.Build.0 = Debug|x64
-		{FBAD406B-4EFF-4A8F-9408-8573B121B2AE}.Debug|x86.ActiveCfg = Debug|Win32
-		{FBAD406B-4EFF-4A8F-9408-8573B121B2AE}.Debug|x86.Build.0 = Debug|Win32
-		{FBAD406B-4EFF-4A8F-9408-8573B121B2AE}.Release|x64.ActiveCfg = Release|x64
-		{FBAD406B-4EFF-4A8F-9408-8573B121B2AE}.Release|x64.Build.0 = Release|x64
-		{FBAD406B-4EFF-4A8F-9408-8573B121B2AE}.Release|x86.ActiveCfg = Release|Win32
-		{FBAD406B-4EFF-4A8F-9408-8573B121B2AE}.Release|x86.Build.0 = Release|Win32
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {6584CE49-B7F2-44CF-82D7-83B771B49CDB}
-	EndGlobalSection
-EndGlobal
+version https://git-lfs.github.com/spec/v1
+oid sha256:4eea7665e1b482490ffcb3167fca847ea47fc654fa15eba0beed7f082e9502c6
+size 1463
