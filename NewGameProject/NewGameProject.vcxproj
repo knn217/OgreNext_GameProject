@@ -112,7 +112,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\OGRE_NEXT\ogre-next-custom\Components\Hlms\Common\include;D:\OGRE_NEXT\ogre-next-custom\Components\Hlms\Unlit\include;D:\OGRE_NEXT\ogre-next-custom\Components\Hlms\Pbs\include;D:\OGRE_NEXT\ogre-next-custom\OgreMain\include;D:\OGRE_NEXT\ogre-next-custom\build\include;D:\OGRE_NEXT\ogre-next-custom\Samples\2.0\Common\include;D:\OGRE_NEXT\ogre-next-custom\Components\Overlay\include;D:\OGRE_NEXT\ogre-next-custom\Dependencies\include\SDL2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\OGRE_NEXT\ogre-next\Components\Hlms\Common\include;D:\OGRE_NEXT\ogre-next\Components\Hlms\Unlit\include;D:\OGRE_NEXT\ogre-next\Components\Hlms\Pbs\include;D:\OGRE_NEXT\ogre-next\OgreMain\include;D:\OGRE_NEXT\ogre-next\build\include;D:\OGRE_NEXT\ogre-next\Samples\2.0\Common\include;D:\OGRE_NEXT\ogre-next\Components\Overlay\include;D:\OGRE_NEXT\ogre-next\Dependencies\include\SDL2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -129,7 +129,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\OGRE_NEXT\ogre-next-custom\Components\Hlms\Common\include;D:\OGRE_NEXT\ogre-next-custom\Components\Hlms\Unlit\include;D:\OGRE_NEXT\ogre-next-custom\Components\Hlms\Pbs\include;D:\OGRE_NEXT\ogre-next-custom\OgreMain\include;D:\OGRE_NEXT\ogre-next-custom\build\include;D:\OGRE_NEXT\ogre-next-custom\Samples\2.0\Common\include;D:\OGRE_NEXT\ogre-next-custom\Components\Overlay\include;D:\OGRE_NEXT\ogre-next-custom\Dependencies\include\SDL2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\OGRE_NEXT\ogre-next\Components\Hlms\Common\include;D:\OGRE_NEXT\ogre-next\Components\Hlms\Unlit\include;D:\OGRE_NEXT\ogre-next\Components\Hlms\Pbs\include;D:\OGRE_NEXT\ogre-next\OgreMain\include;D:\OGRE_NEXT\ogre-next\build\include;D:\OGRE_NEXT\ogre-next\Samples\2.0\Common\include;D:\OGRE_NEXT\ogre-next\Components\Overlay\include;D:\OGRE_NEXT\ogre-next\Dependencies\include\SDL2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

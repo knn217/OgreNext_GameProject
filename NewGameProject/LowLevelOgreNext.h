@@ -28,6 +28,7 @@
 #include "OgreSingleton.h"
 #include "OgreRenderSystem.h"
 
+#include "OgreTextureGpu.h"
 #include "OgreTextureGpuManager.h"
 #include "OgreSceneManager.h"
 #include "OgreMeshManager.h"
@@ -58,31 +59,6 @@
 #include "OgreHlmsSamplerblock.h"
 #include "OgreHlmsUnlitDatablock.h"
 
-static const Ogre::uint32 c_numAreaLights = 4u;
-static const Ogre::uint32 c_areaLightsPoolId = 759384;
-static const Ogre::uint32 c_defaultWidth = 512u;
-static const Ogre::uint32 c_defaultHeight = 512u;
-static const Ogre::PixelFormatGpu c_defaultFormat = Ogre::PFG_RGBA8_UNORM_SRGB;
-static const Ogre::uint8 c_defaultNumMipmaps =
-Ogre::PixelFormatGpuUtils::getMaxMipmapCount(c_defaultWidth, c_defaultHeight);
-
-static const char c_lightRadiusKeys[4] = { 'Y', 'U', 'I', 'O' };
-static const char c_lightFileKeys[4] = { 'H', 'J', 'K', 'L' };
-
-inline float sdBox(const Ogre::Vector2& point, const Ogre::Vector2& center,
-    const Ogre::Vector2& halfSize)
-{
-    Ogre::Vector2 p = point - center;
-    Ogre::Vector2 d = Ogre::Vector2(abs(p.x), abs(p.y)) - halfSize;
-    Ogre::Vector2 dCeil(d);
-    dCeil.makeCeil(Ogre::Vector2::ZERO);
-    return dCeil.length() + std::min(std::max(d.x, d.y), Ogre::Real(0.0f));
-}
-inline float sdAnnularBox(const Ogre::Vector2& point, const Ogre::Vector2& center,
-    const Ogre::Vector2& halfSize, float r)
-{
-    return fabsf(sdBox(point, center, halfSize)) - r;
-}
 //------------------------------------------------------------------------------------------------------------------
 class LowLevelOgreNext
 {
@@ -118,7 +94,6 @@ public:
     void DeInit(const Ogre::String writeAccessFolder, bool UseMicrocodeCache, bool UseHlmsDiskCache);
     void CreateScene01();
     void Update(float timeSinceLast);
-    void CreateAreaMask(float radius, Ogre::Image2& outImage);
     Ogre::MeshPtr CreatePlaneV2(
         const Ogre::String& name, const Ogre::String& groupName, const Ogre::Plane& plane, Ogre::Real width, Ogre::Real height,
         Ogre::uint32 xsegments = 1, Ogre::uint32 ysegments = 1, bool normals = true,
@@ -127,11 +102,12 @@ public:
         Ogre::v1::HardwareBuffer::Usage vertexBufferUsage = Ogre::v1::HardwareBuffer::HBU_STATIC_WRITE_ONLY,
         Ogre::v1::HardwareBuffer::Usage indexBufferUsage = Ogre::v1::HardwareBuffer::HBU_STATIC_WRITE_ONLY,
         bool vertexShadowBuffer = true, bool indexShadowBuffer = true);
-    Ogre::HlmsDatablock* SetupDatablockTextureForLight(Ogre::Light* light, size_t idx);
-    void CreatePlaneForAreaLight(Ogre::Light* light, size_t idx);
-    void CreateLight(const Ogre::Vector3& position, size_t idx);
-    void SetupLightTexture(size_t idx);
-    void DestroyScene();
+    Ogre::HlmsDatablock* SetupDatablockTextureForLight(Ogre::Light* light, const Ogre::String materialName);
+    Ogre::SceneNode* CreateTexturePlane(
+        const Ogre::Plane& plane, const Ogre::Vector3& upVector, const Ogre::Vector3& lightVector,
+        const Ogre::String meshName, const Ogre::String materialName,
+        const Ogre::String aliasName, const Ogre::String textureName,
+        static const Ogre::uint32 areaLightsPoolId);
     const char* GetMediaReadArchiveType() const;
 
     HWND mWinHandle;
@@ -153,15 +129,10 @@ public:
     Ogre::String OutText;
     Ogre::Item* mItem;
     Ogre::SceneNode* nSceneNode;
-    Ogre::SceneNode* mLightNodes[c_numAreaLights];
-    Ogre::Light* mAreaLights[c_numAreaLights];
     Ogre::TextureGpu* mAreaMaskTex;
     Ogre::SkeletonAnimation* mAnyAnimation;
     Ogre::SkeletonAnimationVec mAnyAnimations;
 
-    bool mUseTextureFromFile[c_numAreaLights];
-    float mLightTexRadius[c_numAreaLights];
-    bool mUseSynchronousMethod;
 };
 
 

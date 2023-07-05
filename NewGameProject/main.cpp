@@ -35,7 +35,7 @@ void FullScreenToggle(HWND hwnd, int x, int y, UINT keyFlags)
                 mi.rcMonitor.left, mi.rcMonitor.top,
                 mi.rcMonitor.right - mi.rcMonitor.left,
                 mi.rcMonitor.bottom - mi.rcMonitor.top,
-                SWP_NOOWNERZORDER | SWP_FRAMECHANGED);
+                SWP_NOOWNERZORDER | SWP_FRAMECHANGED);// The transition can be slow in debug mode
         }
     }
     else
@@ -48,15 +48,27 @@ void FullScreenToggle(HWND hwnd, int x, int y, UINT keyFlags)
     }
 }
 
+struct MouseRatio
+{
+public:
+    float ratio_x;
+    float ratio_y;
+};
 
-POINT mouse_cursor;
+MouseRatio mouse_ratio;
 
 void OnMouse(HWND hwnd, int x, int y, UINT keyFlags)
 {
+    POINT mouse_cursor;
+    RECT win_rect;
+
     if (GetCursorPos(&mouse_cursor))
     {
         ScreenToClient(hwnd, &mouse_cursor);
+        GetWindowRect(hwnd, &win_rect);
     }
+    mouse_ratio.ratio_x = (mouse_cursor.x * 2 - (win_rect.right - win_rect.left - 1.0)) / (win_rect.right - win_rect.left - 1);
+    mouse_ratio.ratio_y = (mouse_cursor.y * 2 - (win_rect.bottom - win_rect.top - 1.0)) / (win_rect.bottom - win_rect.top - 1);
 }
 
 
@@ -84,6 +96,7 @@ void OnInput(HWND hwnd, WPARAM code, HRAWINPUT hRawInput)
             StringCchCat(prefix, ARRAYSIZE(prefix), TEXT("E1 "));
         }
 
+        //TCHAR buffer[256];
         StringCchPrintf(buffer, ARRAYSIZE(buffer),
             TEXT("%p, msg=%04x, vk=%04x, scanCode=%s%02x, %s"),
             input->header.hDevice,
@@ -93,6 +106,7 @@ void OnInput(HWND hwnd, WPARAM code, HRAWINPUT hRawInput)
             input->data.keyboard.MakeCode,
             (input->data.keyboard.Flags & RI_KEY_BREAK)
             ? TEXT("release") : TEXT("press"));
+        //ListBox_AddString(hwnd, buffer);
     }
     DefRawInputProc(&input, 1, sizeof(RAWINPUTHEADER));
     free(input);
@@ -196,6 +210,13 @@ void render_thread(LowLevelOgreNext app, Ogre::Root* m_Root, bool* terminate_fla
     double render_FrameTime = 1.0 / 60.0;
     std::string str;
     std::wstring wstr;
+    Ogre::Radian FOV_y;
+    Ogre::Radian FOV_x;
+    Ogre::Radian angle_y;
+    Ogre::Radian angle_x;
+    Ogre::Real aspect_ratio;
+    float ratio_x;
+    float ratio_y;
 
     while (!*terminate_flag_ptr)
     {
@@ -205,17 +226,27 @@ void render_thread(LowLevelOgreNext app, Ogre::Root* m_Root, bool* terminate_fla
         wstr = buffer;
         str = std::string(wstr.begin(), wstr.end());
 #endif
+        FOV_y = app.mCamera->getFOVy() * 0.5;
+        aspect_ratio = app.mCamera->getAspectRatio();
+        FOV_x = Ogre::Math::ATan(aspect_ratio * Ogre::Math::Tan(FOV_y));
+        angle_x = Ogre::Math::ATan(mouse_ratio.ratio_x * aspect_ratio * Ogre::Math::Tan(FOV_y));
+        angle_y = Ogre::Math::ATan(mouse_ratio.ratio_y * Ogre::Math::Tan(FOV_y));
 
         app.GenerateDebugText(
             Ogre::StringConverter::toString(startTime / 1000000.0)
             + "\nanimation: "
             + app.mAnyAnimation->getName().getFriendlyText()
             + "\nmouse:"
-            + Ogre::StringConverter::toString(mouse_cursor.x)
+            + Ogre::StringConverter::toString(angle_x)
             + ", "
-            + Ogre::StringConverter::toString(mouse_cursor.y)
+            + Ogre::StringConverter::toString(angle_y)
             + "\nmulti-keyboard inputs:\n"
-            + str);
+            + str
+            + "\ncamera FOV x, y: "
+            + Ogre::StringConverter::toString(FOV_y)
+            + ", "
+            + Ogre::StringConverter::toString(FOV_x)
+        );
         app.mAnyAnimation->addTime(render_FrameTime);
         m_Root->renderOneFrame();
         startTime = yieldTimer.yield(render_FrameTime, startTime);

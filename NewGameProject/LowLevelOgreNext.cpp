@@ -21,22 +21,9 @@ LowLevelOgreNext::LowLevelOgreNext(HWND hwnd) :
     nSceneNode(0),
     mAreaMaskTex(0),
     mAnyAnimation(0),
-    mUseSynchronousMethod(false),
     OutText("1")
 {
-    OGRE_STATIC_ASSERT(sizeof(c_lightRadiusKeys) / sizeof(c_lightRadiusKeys[0]) >=
-        c_numAreaLights);
-    OGRE_STATIC_ASSERT(sizeof(c_lightFileKeys) / sizeof(c_lightFileKeys[0]) >=
-        c_numAreaLights);
 
-    memset(mAreaLights, 0, sizeof(mLightNodes));
-    memset(mAreaLights, 0, sizeof(mAreaLights));
-    memset(mUseTextureFromFile, 0, sizeof(mUseTextureFromFile));
-
-    for (size_t i = 0; i < c_numAreaLights; ++i)
-    {
-        mLightTexRadius[i] = 0.05f;
-    }
 }
 LowLevelOgreNext::~LowLevelOgreNext(void) { /* Everything is already deleted in DeInit */ }
 //-------------------------------------------------------------------------------------
@@ -108,8 +95,6 @@ Ogre::Root* LowLevelOgreNext::Init(
     CreateTextOverlay();
     // Create the 1st scene
     CreateScene01();
-    // Create Camera
-    CreateCamera();
     // Setup a basic compositor with a blue clear colour
     mCompositorManager = mRoot->getCompositorManager2();
     // Setup workspace
@@ -147,23 +132,6 @@ void LowLevelOgreNext::SetupResources(Ogre::String ResourcePath)
             }
         }
     }
-
-    // Setup resource for decals and area light texture
-    Ogre::String dataFolder = cf.getSetting("DoNotUseAsResource", "Hlms", "");
-
-    if (dataFolder.empty())
-        dataFolder = Demo::AndroidSystems::isAndroid() ? "/" : "./";
-    else if (*(dataFolder.end() - 1) != '/')
-        dataFolder += "/";
-
-    const size_t baseSize = dataFolder.size();
-
-    dataFolder.resize(baseSize);
-    dataFolder += "2.0/scripts/materials/PbsMaterials";
-    AddResourceLocation(dataFolder, GetMediaReadArchiveType(), "General");
-    dataFolder.resize(baseSize);
-    dataFolder += "2.0/scripts/materials/UpdatingDecalsAndAreaLightTex";
-    AddResourceLocation(dataFolder, GetMediaReadArchiveType(), "General");
 }
 //-----------------------------------------------------------------------------------
 void LowLevelOgreNext::LoadResources(Ogre::String ResourcePath, const Ogre::String writeAccessFolder, bool UseMicrocodeCache, bool UseHlmsDiskCache)
@@ -175,23 +143,6 @@ void LowLevelOgreNext::LoadResources(Ogre::String ResourcePath, const Ogre::Stri
 
     // Initialise, parse scripts etc
     Ogre::ResourceGroupManager::getSingleton().initialiseAllResourceGroups(true);
-
-    // Initialize resources for LTC area lights and accurate specular reflections (IBL)
-    Ogre::Hlms* hlms = mRoot->getHlmsManager()->getHlms(Ogre::HLMS_PBS);
-    OGRE_ASSERT_HIGH(dynamic_cast<Ogre::HlmsPbs*>(hlms));
-    Ogre::HlmsPbs* hlmsPbs = static_cast<Ogre::HlmsPbs*>(hlms);
-    try
-    {
-        hlmsPbs->loadLtcMatrix();
-    }
-    catch (Ogre::FileNotFoundException& e)
-    {
-        Ogre::LogManager::getSingleton().logMessage(e.getFullDescription(), Ogre::LML_CRITICAL);
-        Ogre::LogManager::getSingleton().logMessage(
-            "WARNING: LTC matrix textures could not be loaded. Accurate specular IBL reflections "
-            "and LTC area lights won't be available or may not function properly!",
-            Ogre::LML_CRITICAL);
-    }
 }
 //-----------------------------------------------------------------------------------
 void LowLevelOgreNext::AddResourceLocation(const Ogre::String& archName, const Ogre::String& typeName, const Ogre::String& secName)
@@ -516,7 +467,7 @@ void LowLevelOgreNext::CreateCamera()
     // Create & setup camera
     mCamera = mSceneMgr->createCamera("Main Camera");
     // Position it at 500 in Z direction
-    mCamera->setPosition(Ogre::Vector3(0, 5, 15));
+    mCamera->setPosition(Ogre::Vector3(0, 0, 25));
     // Look back along -Z
     mCamera->lookAt(Ogre::Vector3(0, 0, 0));
     mCamera->setNearClipDistance(0.2f);
@@ -582,25 +533,12 @@ void LowLevelOgreNext::DeInit(const Ogre::String writeAccessFolder, bool UseMicr
 void LowLevelOgreNext::CreateScene01()
 {
     mTextureMgr = mRoot->getRenderSystem()->getTextureGpuManager();
-    // Reserve/create the texture for the area lights
-    mAreaMaskTex = mTextureMgr->reservePoolId(c_areaLightsPoolId, c_defaultWidth, c_defaultHeight, c_numAreaLights, c_defaultNumMipmaps, c_defaultFormat);
-    // Set the texture mask to PBS.
-    Ogre::Hlms* hlms = mRoot->getHlmsManager()->getHlms(Ogre::HLMS_PBS);
-    assert(dynamic_cast<Ogre::HlmsPbs*>(hlms));
-    Ogre::HlmsPbs* pbs = static_cast<Ogre::HlmsPbs*>(hlms);
-
-    pbs->setAreaLightMasks(mAreaMaskTex);
-    pbs->setAreaLightForwardSettings(c_numAreaLights, 0u);
     //-----------------------------------------------------------------------------------------
     mMeshMgr = Ogre::MeshManager::getSingletonPtr();
     mMeshMgrV1 = Ogre::v1::MeshManager::getSingletonPtr();
 
     Ogre::MeshPtr v2Mesh;
-    Ogre::MeshPtr v2Floor = CreatePlaneV2(
-        "Floor", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
-        Ogre::Plane(Ogre::Vector3::UNIT_Y, -10.0f), 50.0f, 50.0f, 1, 1, true, 1, 4.0f, 4.0f,
-        Ogre::Vector3::UNIT_Z, Ogre::v1::HardwareBuffer::HBU_STATIC,
-        Ogre::v1::HardwareBuffer::HBU_STATIC);
+    Ogre::MeshPtr v2Floor;
 
     {  // Prepare the mesh
         v2Mesh = mMeshMgr->load(
@@ -619,12 +557,17 @@ void LowLevelOgreNext::CreateScene01()
 
     {
         // Set up floor
+        v2Floor = CreatePlaneV2(
+            "Floor", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+            Ogre::Plane(Ogre::Vector3::UNIT_Y, -10.0f), 25.0f, 25.0f, 1, 1, true, 1, 4.0f, 4.0f,
+            Ogre::Vector3::UNIT_Z, Ogre::v1::HardwareBuffer::HBU_STATIC,
+            Ogre::v1::HardwareBuffer::HBU_STATIC);
+
         Ogre::Item* item = mSceneMgr->createItem(v2Floor, Ogre::SCENE_DYNAMIC);
         item->setDatablock("MirrorLike");
-        Ogre::SceneNode* sceneNode = mSceneMgr->getRootSceneNode(Ogre::SCENE_DYNAMIC)
-            ->createChildSceneNode(Ogre::SCENE_DYNAMIC);
-        sceneNode->setPosition(0, -1, 0);
+        Ogre::SceneNode* sceneNode = mSceneMgr->getRootSceneNode(Ogre::SCENE_DYNAMIC)->createChildSceneNode(Ogre::SCENE_DYNAMIC);
         sceneNode->attachObject(item);
+        sceneNode->setPosition(0, -1, 0);
     }
 
     {
@@ -637,17 +580,6 @@ void LowLevelOgreNext::CreateScene01()
         mAnyAnimation->setEnabled(true);
     }
 
-    // Create the mesh template for all the lights (i.e. the billboard-like plane)
-
-    {
-        Ogre::MeshPtr LightPlaneV2 = CreatePlaneV2(
-            "LightPlane", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
-            Ogre::Plane(Ogre::Vector3::UNIT_Z, 0.0f), 1.0f, 1.0f, 1, 1, true, 1, 1.0f, 1.0f,
-            Ogre::Vector3::UNIT_Y, Ogre::v1::HardwareBuffer::HBU_STATIC,
-            Ogre::v1::HardwareBuffer::HBU_STATIC);
-    }
-
-
     // Main directional light
     Ogre::Light* light = mSceneMgr->createLight();
     Ogre::SceneNode* rootNode = mSceneMgr->getRootSceneNode();
@@ -657,106 +589,25 @@ void LowLevelOgreNext::CreateScene01()
     light->setType(Ogre::Light::LT_DIRECTIONAL);
     light->setDirection(Ogre::Vector3(-1, -1, -1).normalisedCopy());
 
-    for (size_t i = 0; i < c_numAreaLights; ++i)
-    {
-        // Create light planes at different locations
-        CreateLight(
-            Ogre::Vector3((Ogre::Real(i) - (c_numAreaLights - 1u) * 0.5f) * 10, 4.0f, 0.0f),
-            i);
-        // Toggle config for texture usage
-        mUseTextureFromFile[i] = !mUseTextureFromFile[i];
-        // Setup light texture from config
-        SetupLightTexture(i);
-    }
+    // Create a 2D plane and load texture from .PNG file
+    Ogre::SceneNode* PlaneNode_1 = CreateTexturePlane(
+        Ogre::Plane(Ogre::Vector3::UNIT_Z, 0.0f), Ogre::Vector3::UNIT_Y,
+        -Ogre::Plane(Ogre::Vector3::UNIT_Z, 0.0f).normal,
+        "plane_1", "material_1", "alias_1", "10points.PNG", 759384);
+    PlaneNode_1->setPosition(5, 0, 0);
+    // Rotate the plane around the x_axis
+    //PlaneNode_1->pitch(Ogre::Radian(Ogre::Degree(45.0f)), Ogre::Node::TS_LOCAL);
 
-    //mUseTextureFromFile[1] = !mUseTextureFromFile[1];
-    //SetupLightTexture(1);
+    // Create Camera
+    CreateCamera();
+    //mCamera->setPosition(Ogre::Vector3(0, 0, 1));
+    //mCamera->setProjectionType(Ogre::PT_ORTHOGRAPHIC);
+
 }
 //___________________________________________________________________________________
 void LowLevelOgreNext::Update(float timeSinceLast)
 {
-    GenerateDebugText("2");
-    mAnyAnimation->addTime(timeSinceLast);
-}
-//-----------------------------------------------------------------------------------
-void LowLevelOgreNext::CreateAreaMask(float radius, Ogre::Image2& outImage)
-{
-    // Please note the texture CAN be coloured. The sample uses a monochrome texture,
-    // but you coloured textures are supported too. However they will burn a little
-    // more GPU performance.
-    const Ogre::uint32 texWidth = c_defaultWidth;
-    const Ogre::uint32 texHeight = c_defaultHeight;
-    const Ogre::PixelFormatGpu texFormat = c_defaultFormat;
 
-    // Fill the texture with a hollow rectangle, 10-pixel thick.
-    size_t sizeBytes = Ogre::PixelFormatGpuUtils::calculateSizeBytes(texWidth, texHeight, 1u, 1u,
-        texFormat, 1u, 4u);
-    Ogre::uint8* data =
-        reinterpret_cast<Ogre::uint8*>(OGRE_MALLOC_SIMD(sizeBytes, Ogre::MEMCATEGORY_GENERAL));
-    outImage.loadDynamicImage(data, texWidth, texHeight, 1u, Ogre::TextureTypes::Type2D, texFormat,
-        true, 1u);
-
-    const float invTexWidth = 1.0f / texWidth;
-    const float invTexHeight = 1.0f / texHeight;
-    for (size_t y = 0; y < texHeight; ++y)
-    {
-        for (size_t x = 0; x < texWidth; ++x)
-        {
-            const Ogre::Vector2 uv(Ogre::Real(x) * invTexWidth, Ogre::Real(y) * invTexHeight);
-
-            const float d = sdAnnularBox(uv, Ogre::Vector2(0.5f), Ogre::Vector2(0.3f), radius);
-            if (d <= 0)
-            {
-                *data++ = 255;
-                *data++ = 255;
-                *data++ = 255;
-                *data++ = 255;
-            }
-            else
-            {
-                *data++ = 0;
-                *data++ = 0;
-                *data++ = 0;
-                *data++ = 0;
-            }
-        }
-    }
-
-    // Generate the mipmaps so roughness works
-    outImage.generateMipmaps(true, Ogre::Image2::FILTER_GAUSSIAN_HIGH);
-
-    {
-        // Ensure the lower mips have black borders. This is done to prevent certain artifacts,
-        // Ensure the higher mips have grey borders. This is done to prevent certain artifacts.
-        for (size_t i = 0u; i < outImage.getNumMipmaps(); ++i)
-        {
-            Ogre::TextureBox dataBox = outImage.getData(static_cast<Ogre::uint8>(i));
-
-            const Ogre::uint8 borderColour = i >= 5u ? 127u : 0u;
-            const Ogre::uint32 currWidth = dataBox.width;
-            const Ogre::uint32 currHeight = dataBox.height;
-
-            const size_t bytesPerRow = dataBox.bytesPerRow;
-
-            memset(dataBox.at(0, 0, 0), borderColour, bytesPerRow);
-            memset(dataBox.at(0, (currHeight - 1u), 0), borderColour, bytesPerRow);
-
-            for (size_t y = 1; y < currWidth - 1u; ++y)
-            {
-                Ogre::uint8* left = reinterpret_cast<Ogre::uint8*>(dataBox.at(0, y, 0));
-                left[0] = borderColour;
-                left[1] = borderColour;
-                left[2] = borderColour;
-                left[3] = borderColour;
-                Ogre::uint8* right =
-                    reinterpret_cast<Ogre::uint8*>(dataBox.at(currWidth - 1u, y, 0));
-                right[0] = borderColour;
-                right[1] = borderColour;
-                right[2] = borderColour;
-                right[3] = borderColour;
-            }
-        }
-    }
 }
 //-----------------------------------------------------------------------------------
 Ogre::MeshPtr LowLevelOgreNext::CreatePlaneV2(
@@ -780,7 +631,7 @@ Ogre::MeshPtr LowLevelOgreNext::CreatePlaneV2(
     return planeMesh;
 }
 //-----------------------------------------------------------------------------------
-Ogre::HlmsDatablock* LowLevelOgreNext::SetupDatablockTextureForLight(Ogre::Light* light, size_t idx)
+Ogre::HlmsDatablock* LowLevelOgreNext::SetupDatablockTextureForLight(Ogre::Light* light, const Ogre::String materialName)
 {
     Ogre::Hlms* hlmsUnlit = mRoot->getHlmsManager()->getHlms(Ogre::HLMS_UNLIT);
 
@@ -789,7 +640,6 @@ Ogre::HlmsDatablock* LowLevelOgreNext::SetupDatablockTextureForLight(Ogre::Light
     // IMPORTANT: these materials are never destroyed once they're not needed (they will
     // be destroyed by Ogre on shutdown). Watchout for this to prevent memory leaks in
     // a real implementation
-    const Ogre::String materialName = "LightPlane Material" + Ogre::StringConverter::toString(idx);
     Ogre::HlmsMacroblock macroblock;
     macroblock.mCullMode = Ogre::CULL_NONE;
     Ogre::HlmsDatablock* datablockBase = hlmsUnlit->getDatablock(materialName);
@@ -818,144 +668,66 @@ Ogre::HlmsDatablock* LowLevelOgreNext::SetupDatablockTextureForLight(Ogre::Light
     return datablock;
 }
 //-----------------------------------------------------------------------------------
-void LowLevelOgreNext::CreatePlaneForAreaLight(Ogre::Light* light, size_t idx)
+Ogre::SceneNode* LowLevelOgreNext::CreateTexturePlane(
+    const Ogre::Plane& plane, const Ogre::Vector3& upVector, const Ogre::Vector3& lightVector,
+    const Ogre::String meshName, const Ogre::String materialName,
+    const Ogre::String aliasName, const Ogre::String textureName,
+    static const Ogre::uint32 areaLightsPoolId)
 {
-    Ogre::HlmsDatablock* datablock = SetupDatablockTextureForLight(light, idx);
-
-    // Create the plane Item
-    Ogre::SceneNode* lightNode = light->getParentSceneNode();
-    Ogre::SceneNode* planeNode = lightNode->createChildSceneNode();
-
-    Ogre::Item* item = mSceneMgr->createItem(
-        "LightPlane", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
-    item->setCastShadows(false);
-    item->setDatablock(datablock);
-    planeNode->attachObject(item);
-
-    // Math the plane size to that of the area light
-    const Ogre::Vector2 rectSize = light->getRectSize();
-    planeNode->setScale(rectSize.x, rectSize.y, 1.0f);
-
-    /* For debugging ranges & AABBs
-    Ogre::WireAabb *wireAabb = sceneManager->createWireAabb();
-    wireAabb->track( light );*/
-}
-//-----------------------------------------------------------------------------------
-void LowLevelOgreNext::CreateLight(const Ogre::Vector3& position, size_t idx)
-{
-    Ogre::SceneNode* rootNode = mSceneMgr->getRootSceneNode();
-
-    Ogre::Light* light = mSceneMgr->createLight();
-    Ogre::SceneNode* lightNode = rootNode->createChildSceneNode();
-    lightNode->attachObject(light);
-    light->setDiffuseColour(1.0f, 1.0f, 1.0f);
-    light->setSpecularColour(1.0f, 1.0f, 1.0f);
+    // Create Light for the plane-------------------------------------------------
+    Ogre::Light* Planelight = mSceneMgr->createLight();
+    Ogre::SceneNode* PlanelightNode = mSceneMgr->getRootSceneNode()->createChildSceneNode();
+    PlanelightNode->attachObject(Planelight);
+    Planelight->setDiffuseColour(1.0f, 1.0f, 1.0f);
+    Planelight->setSpecularColour(1.0f, 1.0f, 1.0f);
     // Increase the strength 10x to showcase this light. Area approx lights are not
     // physically based so the value is more arbitrary than the other light types
-    light->setPowerScale(Ogre::Math::PI);
-    light->setType(Ogre::Light::LT_AREA_APPROX);
-    light->setRectSize(Ogre::Vector2(5.0f, 5.0f));
-    lightNode->setPosition(position);
-    light->setDirection(Ogre::Vector3(0, 0, 1).normalisedCopy());
-    light->setAttenuationBasedOnRadius(10.0f, 0.01f);
+    Planelight->setPowerScale(Ogre::Math::PI);
+    Planelight->setType(Ogre::Light::LT_AREA_APPROX);
+    Planelight->setRectSize(Ogre::Vector2(5.0f, 5.0f));
+    PlanelightNode->setPosition(Ogre::Vector3(0.0f, 0.0f, 0.0f));
+    Planelight->setDirection(lightVector.normalisedCopy());
+    //Planelight->setDirection(-plane.normal.normalisedCopy());
+    Planelight->setAttenuationBasedOnRadius(10.0f, 0.01f);
 
-    //        //Control the diffuse mip (this is the default value)
-    //        light->mTexLightMaskDiffuseMipStart = (Ogre::uint16)(0.95f * 65535);
+    // Create the mesh for light plane
+    Ogre::MeshPtr v2LightPlane = CreatePlaneV2(
+        meshName, Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+        plane, 1.0f, 1.0f, 1, 1, true, 1, 1.0f, 1.0f,
+        upVector, Ogre::v1::HardwareBuffer::HBU_STATIC,
+        Ogre::v1::HardwareBuffer::HBU_STATIC);
 
-    CreatePlaneForAreaLight(light, idx);
+    // Setup datablock texture for light
+    Ogre::HlmsDatablock* datablock = SetupDatablockTextureForLight(Planelight, materialName);
 
-    mAreaLights[idx] = light;
-    mLightNodes[idx] = lightNode;
+    // Create the plane Item
+    //Ogre::SceneNode* planeNode = PlanelightNode->createChildSceneNode(Ogre::SCENE_DYNAMIC);
+
+    //Ogre::Item* item = mSceneMgr->createItem(meshName, Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+    Ogre::Item* item = mSceneMgr->createItem(v2LightPlane, Ogre::SCENE_DYNAMIC);
+    item->setCastShadows(false);
+    item->setDatablock(datablock);
+    //planeNode->attachObject(item);
+    PlanelightNode->attachObject(item);
+
+    // Match the plane size to that of the area light
+    const Ogre::Vector2 rectSize = Planelight->getRectSize();
+    //planeNode->setScale(rectSize.x, rectSize.y, 1.0f);
+    PlanelightNode->setScale(rectSize.x, rectSize.y, 1.0f);
+
+    // Setup light texture-------------------------------------------------------
+    Ogre::TextureGpu* areaTex = mTextureMgr->findTextureNoThrow(aliasName);
+    if (areaTex)
+        mTextureMgr->destroyTexture(areaTex);
+
+    areaTex = mTextureMgr->createOrRetrieveTexture(
+        textureName, aliasName,
+        Ogre::GpuPageOutStrategy::Discard, Ogre::CommonTextureTypes::Diffuse,
+        Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME, areaLightsPoolId);
+
+    Planelight->setTexture(areaTex);
+    SetupDatablockTextureForLight(Planelight, materialName);
+
+    return PlanelightNode;
 }
-//-----------------------------------------------------------------------------------
-void LowLevelOgreNext::SetupLightTexture(size_t idx)
-{
-    mTextureMgr = mRoot->getRenderSystem()->getTextureGpuManager();
 
-    if (!mUseTextureFromFile[idx])
-    {
-        Ogre::TextureGpu* areaTex = mTextureMgr->createOrRetrieveTexture(
-            "AreaLightMask" + Ogre::StringConverter::toString(idx),
-            Ogre::GpuPageOutStrategy::AlwaysKeepSystemRamCopy, Ogre::TextureFlags::AutomaticBatching,
-            Ogre::TextureTypes::Type2D, Ogre::BLANKSTRING, 0u, c_areaLightsPoolId);
-
-        Ogre::Image2 image;
-        CreateAreaMask(mLightTexRadius[idx], image);
-
-        bool canUseSynchronousUpload =
-            areaTex->getNextResidencyStatus() == Ogre::GpuResidency::Resident &&
-            areaTex->isDataReady();
-        if (mUseSynchronousMethod && canUseSynchronousUpload)
-        {
-            // If canUseSynchronousUpload is false, you can use areaTex->waitForData()
-            // to still use sync method (assuming the texture is resident)
-            image.uploadTo(areaTex, 0, areaTex->getNumMipmaps() - 1u);
-        }
-        else
-        {
-            // Asynchronous is preferred due to being done in the background. But the switch
-            // Resident -> OnStorage -> Resident may cause undesired effects, so we
-            // show how to do it synchronously
-
-            // Tweak via _setAutoDelete so the internal data is copied as a pointer
-            // instead of performing a deep copy of the data; while leaving the responsability
-            // of freeing memory to imagePtr instead.
-            image._setAutoDelete(false);
-            Ogre::Image2* imagePtr = new Ogre::Image2(image);
-            imagePtr->_setAutoDelete(true);
-
-            if (areaTex->getNextResidencyStatus() == Ogre::GpuResidency::Resident)
-                areaTex->scheduleTransitionTo(Ogre::GpuResidency::OnStorage);
-            // Ogre will call "delete imagePtr" when done, because we're passing
-            // true to autoDeleteImage argument in scheduleTransitionTo
-            areaTex->scheduleTransitionTo(Ogre::GpuResidency::Resident, imagePtr, true);
-
-            mAreaLights[idx]->setTexture(areaTex);
-        }
-    }
-    else
-    {
-        const Ogre::String aliasName = "AreaLightMask" + Ogre::StringConverter::toString(idx);
-        Ogre::TextureGpu* areaTex = mTextureMgr->findTextureNoThrow(aliasName);
-        if (areaTex)
-            mTextureMgr->destroyTexture(areaTex);
-
-        // We know beforehand that floor_bump.PNG & co are 512x512. This is important!!!
-        //(because it must match the resolution of the texture created via reservePoolId)
-        const char* textureNames[4] = { "floor_bump.PNG", "grassWalpha.tga", "MtlPlat2.jpg",
-                                        "Panels_Normal_Obj.png" };
-
-        areaTex = mTextureMgr->createOrRetrieveTexture(
-            textureNames[idx % 4u], "AreaLightMask" + Ogre::StringConverter::toString(idx),
-            Ogre::GpuPageOutStrategy::Discard, Ogre::CommonTextureTypes::Diffuse,
-            Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME, c_areaLightsPoolId);
-        mAreaLights[idx]->setTexture(areaTex);
-    }
-
-    SetupDatablockTextureForLight(mAreaLights[idx], idx);
-
-    if (!mUseSynchronousMethod)
-    {
-        // If we don't wait, textures will flicker during async upload.
-        // If you don't care about the glitch, avoid this call
-        mTextureMgr->waitForStreamingCompletion();
-    }
-}
-//-----------------------------------------------------------------------------------
-void LowLevelOgreNext::DestroyScene()
-{
-    mTextureMgr = mRoot->getRenderSystem()->getTextureGpuManager();
-
-    for (size_t i = 0; i < c_numAreaLights; ++i)
-    {
-        if (mAreaLights[i])
-            mTextureMgr->destroyTexture(mAreaLights[i]->getTexture());
-    }
-
-    // Don't forget to destroy mAreaMaskTex, otherwise this pool will leak!!!
-    if (mAreaMaskTex)
-    {
-        mTextureMgr->destroyTexture(mAreaMaskTex);
-        mAreaMaskTex = 0;
-    }
-}

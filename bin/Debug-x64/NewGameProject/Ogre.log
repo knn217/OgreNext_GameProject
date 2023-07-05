@@ -1,572 +1,589 @@
-16:13:27: Creating resource group General
-16:13:27: Creating resource group Internal
-16:13:27: Creating resource group Autodetect
-16:13:27: SceneManagerFactory for type 'DefaultSceneManager' registered.
-16:13:27: Registering ResourceManager for type Material
-16:13:27: Registering ResourceManager for type Mesh
-16:13:27: Registering ResourceManager for type Mesh2
-16:13:27: Registering ResourceManager for type OldSkeleton
-16:13:27: MovableObjectFactory for type 'ParticleSystem' registered.
-16:13:27: ArchiveFactory for archive type FileSystem registered.
-16:13:27: ArchiveFactory for archive type Zip registered.
-16:13:27: ArchiveFactory for archive type EmbeddedZip registered.
-16:13:27: DDS codec registering
-16:13:27: FreeImage version: 3.18.0
-16:13:27: This program uses FreeImage, a free, open source image library supporting all common bitmap formats. See http://freeimage.sourceforge.net for details
-16:13:27: Supported formats: bmp,ico,jpg,jif,jpeg,jpe,jng,koa,iff,lbm,mng,pbm,pbm,pcd,pcx,pgm,pgm,png,ppm,ppm,ras,tga,targa,tif,tiff,wap,wbmp,wbm,psd,psb,cut,xbm,xpm,gif,hdr,g3,sgi,rgb,rgba,bw,exr,j2k,j2c,jp2,pfm,pct,pict,pic,3fr,arw,bay,bmq,cap,cine,cr2,crw,cs1,dc2,dcr,drf,dsc,dng,erf,fff,ia,iiq,k25,kc2,kdc,mdc,mef,mos,mrw,nef,nrw,orf,pef,ptx,pxn,qtk,raf,raw,rdc,rw2,rwl,rwz,sr2,srf,srw,sti,x3f,webp
-16:13:27: ETC codec registering
-16:13:27: OITD codec registering
-16:13:27: Registering ResourceManager for type HighLevelGpuProgram
-16:13:27: MovableObjectFactory for type 'Decal' registered.
-16:13:27: MovableObjectFactory for type 'InternalCubemapProbe' registered.
-16:13:27: MovableObjectFactory for type 'Entity' registered.
-16:13:27: MovableObjectFactory for type 'Item' registered.
-16:13:27: MovableObjectFactory for type 'Light' registered.
-16:13:27: MovableObjectFactory for type 'Rectangle2Dv2' registered.
-16:13:27: MovableObjectFactory for type 'BillboardSet' registered.
-16:13:27: MovableObjectFactory for type 'ManualObject2' registered.
-16:13:27: MovableObjectFactory for type 'BillboardChain' registered.
-16:13:27: MovableObjectFactory for type 'RibbonTrail' registered.
-16:13:27: MovableObjectFactory for type 'WireAabb' registered.
-16:13:27: Loading library .\RenderSystem_Direct3D11_d
-16:13:27: Could not load optional dynamic library .\RenderSystem_Direct3D11_d.  System Error: The specified module could not be found.
-
-16:13:27: Loading library .\RenderSystem_GL3Plus_d
-16:13:27: Installing plugin: GL 3+ RenderSystem
-16:13:27: OpenGL 3+ Rendering Subsystem created.
-16:13:28: Plugin successfully installed
-16:13:28: Loading library .\RenderSystem_Vulkan_d
-16:13:28: Installing plugin: Vulkan RenderSystem
-16:13:28: [Vulkan] Initializing VkInstance
-16:13:29: Found instance extension: VK_KHR_device_group_creation
-16:13:29: Found instance extension: VK_KHR_display
-16:13:29: Found instance extension: VK_KHR_external_fence_capabilities
-16:13:29: Found instance extension: VK_KHR_external_memory_capabilities
-16:13:29: Found instance extension: VK_KHR_external_semaphore_capabilities
-16:13:29: Found instance extension: VK_KHR_get_display_properties2
-16:13:29: Found instance extension: VK_KHR_get_physical_device_properties2
-16:13:29: Found instance extension: VK_KHR_get_surface_capabilities2
-16:13:29: Found instance extension: VK_KHR_surface
-16:13:29: Found instance extension: VK_KHR_surface_protected_capabilities
-16:13:29: Found instance extension: VK_KHR_win32_surface
-16:13:29: Found instance extension: VK_EXT_debug_report
-16:13:29: Found instance extension: VK_EXT_debug_utils
-16:13:29: Found instance extension: VK_EXT_direct_mode_display
-16:13:29: Found instance extension: VK_EXT_swapchain_colorspace
-16:13:29: Found instance extension: VK_NV_external_memory_capabilities
-16:13:29: Found instance extension: VK_KHR_portability_enumeration
-16:13:29: Found instance layer: VK_LAYER_NV_optimus
-16:13:29: Found instance layer: VK_LAYER_AMD_switchable_graphics
-16:13:29: Found instance layer: VK_LAYER_OBS_HOOK
-16:13:29: Found instance layer: VK_LAYER_VALVE_steam_overlay
-16:13:29: Found instance layer: VK_LAYER_VALVE_steam_fossilize
-16:13:29: WARNING: VK_LAYER_KHRONOS_validation layer not present. Extension VK_EXT_debug_marker not found
-16:13:29: Requesting Instance Extension: VK_KHR_get_physical_device_properties2
-16:13:29: Requesting Instance Extension: VK_KHR_win32_surface
-16:13:29: Requesting Instance Extension: VK_EXT_debug_report
-16:13:29: Requesting Instance Extension: VK_EXT_debug_utils
-16:13:29: Requesting Instance Extension: VK_KHR_surface
-16:13:29: ERROR: [Loader Message] Code 0 : loader_get_json: Failed to open JSON file D:\VulkanSDK\1.3.236.0\Bin\VkLayer_api_dump.json
-16:13:29: ERROR: [Loader Message] Code 0 : loader_get_json: Failed to open JSON file D:\VulkanSDK\1.3.236.0\Bin\VkLayer_gfxreconstruct.json
-16:13:29: ERROR: [Loader Message] Code 0 : loader_get_json: Failed to open JSON file D:\VulkanSDK\1.3.236.0\Bin\VkLayer_khronos_synchronization2.json
-16:13:29: ERROR: [Loader Message] Code 0 : loader_get_json: Failed to open JSON file D:\VulkanSDK\1.3.236.0\Bin\VkLayer_khronos_validation.json
-16:13:29: ERROR: [Loader Message] Code 0 : loader_get_json: Failed to open JSON file D:\VulkanSDK\1.3.236.0\Bin\VkLayer_monitor.json
-16:13:29: ERROR: [Loader Message] Code 0 : loader_get_json: Failed to open JSON file D:\VulkanSDK\1.3.236.0\Bin\VkLayer_screenshot.json
-16:13:29: ERROR: [Loader Message] Code 0 : loader_get_json: Failed to open JSON file D:\VulkanSDK\1.3.236.0\Bin\VkLayer_khronos_profiles.json
-16:13:29: [Vulkan] Found 2 devices
-16:13:29: [Vulkan] Found devices:
-16:13:29: AMD Radeon(TM) Graphics #0
-16:13:29: NVIDIA GeForce RTX 3050 Laptop GPU #1
-16:13:29: Plugin successfully installed
-16:13:29: Loading library .\Plugin_ParticleFX_d
-16:13:29: Installing plugin: ParticleFX
-16:13:29: Particle Emitter Type 'Point' registered
-16:13:29: Particle Emitter Type 'Box' registered
-16:13:29: Particle Emitter Type 'Ellipsoid' registered
-16:13:29: Particle Emitter Type 'Cylinder' registered
-16:13:29: Particle Emitter Type 'Ring' registered
-16:13:29: Particle Emitter Type 'HollowEllipsoid' registered
-16:13:29: Particle Affector Type 'LinearForce' registered
-16:13:29: Particle Affector Type 'ColourFader' registered
-16:13:29: Particle Affector Type 'ColourFader2' registered
-16:13:29: Particle Affector Type 'ColourImage' registered
-16:13:29: Particle Affector Type 'ColourInterpolator' registered
-16:13:29: Particle Affector Type 'ScaleInterpolator' registered
-16:13:29: Particle Affector Type 'Scaler' registered
-16:13:29: Particle Affector Type 'Rotator' registered
-16:13:29: Particle Affector Type 'DirectionRandomiser' registered
-16:13:29: Particle Affector Type 'DeflectorPlane' registered
-16:13:29: Plugin successfully installed
-16:13:29: *-*-* OGRE Initialising
-16:13:29: *-*-* Version 3.0.0unstable (E)
-16:13:30: CPU Identifier & Features
-16:13:30: -------------------------
-16:13:30:  *   CPU ID: AuthenticAMD: AMD Ryzen 5 5600H with Radeon Graphics
-16:13:30:  *   Logical cores: 12
-16:13:30:  *      SSE: yes
-16:13:30:  *     SSE2: yes
-16:13:30:  *     SSE3: yes
-16:13:30:  *      MMX: yes
-16:13:30:  *   MMXEXT: yes
-16:13:30:  *    3DNOW: no
-16:13:30:  * 3DNOWEXT: no
-16:13:30:  *     CMOV: yes
-16:13:30:  *      TSC: yes
-16:13:30:  *      FPU: yes
-16:13:30:  *      PRO: yes
-16:13:30:  *       HT: no
-16:13:30: -------------------------
-16:13:30: [Vulkan] Found 2 devices
-16:13:30: [Vulkan] Selecting device 0
-16:13:30: Found device extension: VK_KHR_16bit_storage
-16:13:30: Found device extension: VK_KHR_8bit_storage
-16:13:30: Found device extension: VK_KHR_bind_memory2
-16:13:30: Found device extension: VK_KHR_buffer_device_address
-16:13:30: Found device extension: VK_KHR_copy_commands2
-16:13:30: Found device extension: VK_KHR_create_renderpass2
-16:13:30: Found device extension: VK_KHR_dedicated_allocation
-16:13:30: Found device extension: VK_KHR_depth_stencil_resolve
-16:13:30: Found device extension: VK_KHR_descriptor_update_template
-16:13:30: Found device extension: VK_KHR_device_group
-16:13:30: Found device extension: VK_KHR_draw_indirect_count
-16:13:30: Found device extension: VK_KHR_driver_properties
-16:13:30: Found device extension: VK_KHR_dynamic_rendering
-16:13:30: Found device extension: VK_KHR_external_fence
-16:13:30: Found device extension: VK_KHR_external_fence_win32
-16:13:30: Found device extension: VK_KHR_external_memory
-16:13:30: Found device extension: VK_KHR_external_memory_win32
-16:13:30: Found device extension: VK_KHR_external_semaphore
-16:13:30: Found device extension: VK_KHR_external_semaphore_win32
-16:13:30: Found device extension: VK_KHR_format_feature_flags2
-16:13:30: Found device extension: VK_KHR_get_memory_requirements2
-16:13:30: Found device extension: VK_KHR_global_priority
-16:13:30: Found device extension: VK_KHR_imageless_framebuffer
-16:13:30: Found device extension: VK_KHR_image_format_list
-16:13:30: Found device extension: VK_KHR_maintenance1
-16:13:30: Found device extension: VK_KHR_maintenance2
-16:13:30: Found device extension: VK_KHR_maintenance3
-16:13:30: Found device extension: VK_KHR_maintenance4
-16:13:30: Found device extension: VK_KHR_multiview
-16:13:30: Found device extension: VK_KHR_pipeline_executable_properties
-16:13:30: Found device extension: VK_KHR_pipeline_library
-16:13:30: Found device extension: VK_KHR_push_descriptor
-16:13:30: Found device extension: VK_KHR_relaxed_block_layout
-16:13:30: Found device extension: VK_KHR_sampler_mirror_clamp_to_edge
-16:13:30: Found device extension: VK_KHR_sampler_ycbcr_conversion
-16:13:30: Found device extension: VK_KHR_separate_depth_stencil_layouts
-16:13:30: Found device extension: VK_KHR_shader_atomic_int64
-16:13:30: Found device extension: VK_KHR_shader_clock
-16:13:30: Found device extension: VK_KHR_shader_draw_parameters
-16:13:30: Found device extension: VK_KHR_shader_float16_int8
-16:13:30: Found device extension: VK_KHR_shader_float_controls
-16:13:30: Found device extension: VK_KHR_shader_integer_dot_product
-16:13:30: Found device extension: VK_KHR_shader_non_semantic_info
-16:13:30: Found device extension: VK_KHR_shader_subgroup_extended_types
-16:13:30: Found device extension: VK_KHR_shader_subgroup_uniform_control_flow
-16:13:30: Found device extension: VK_KHR_shader_terminate_invocation
-16:13:30: Found device extension: VK_KHR_spirv_1_4
-16:13:30: Found device extension: VK_KHR_storage_buffer_storage_class
-16:13:30: Found device extension: VK_KHR_swapchain
-16:13:30: Found device extension: VK_KHR_swapchain_mutable_format
-16:13:30: Found device extension: VK_KHR_synchronization2
-16:13:30: Found device extension: VK_KHR_timeline_semaphore
-16:13:30: Found device extension: VK_KHR_uniform_buffer_standard_layout
-16:13:30: Found device extension: VK_KHR_variable_pointers
-16:13:30: Found device extension: VK_KHR_vulkan_memory_model
-16:13:30: Found device extension: VK_KHR_win32_keyed_mutex
-16:13:30: Found device extension: VK_KHR_workgroup_memory_explicit_layout
-16:13:30: Found device extension: VK_KHR_zero_initialize_workgroup_memory
-16:13:30: Found device extension: VK_EXT_4444_formats
-16:13:30: Found device extension: VK_EXT_calibrated_timestamps
-16:13:30: Found device extension: VK_EXT_color_write_enable
-16:13:30: Found device extension: VK_EXT_conditional_rendering
-16:13:30: Found device extension: VK_EXT_conservative_rasterization
-16:13:30: Found device extension: VK_EXT_custom_border_color
-16:13:30: Found device extension: VK_EXT_depth_clip_control
-16:13:30: Found device extension: VK_EXT_depth_clip_enable
-16:13:30: Found device extension: VK_EXT_depth_range_unrestricted
-16:13:30: Found device extension: VK_EXT_descriptor_indexing
-16:13:30: Found device extension: VK_EXT_extended_dynamic_state
-16:13:30: Found device extension: VK_EXT_extended_dynamic_state2
-16:13:30: Found device extension: VK_EXT_external_memory_host
-16:13:30: Found device extension: VK_EXT_full_screen_exclusive
-16:13:30: Found device extension: VK_EXT_global_priority
-16:13:30: Found device extension: VK_EXT_global_priority_query
-16:13:30: Found device extension: VK_EXT_hdr_metadata
-16:13:30: Found device extension: VK_EXT_host_query_reset
-16:13:30: Found device extension: VK_EXT_image_robustness
-16:13:30: Found device extension: VK_EXT_image_view_min_lod
-16:13:30: Found device extension: VK_EXT_index_type_uint8
-16:13:30: Found device extension: VK_EXT_inline_uniform_block
-16:13:30: Found device extension: VK_EXT_line_rasterization
-16:13:30: Found device extension: VK_EXT_load_store_op_none
-16:13:30: Found device extension: VK_EXT_memory_budget
-16:13:30: Found device extension: VK_EXT_memory_priority
-16:13:30: Found device extension: VK_EXT_non_seamless_cube_map
-16:13:30: Found device extension: VK_EXT_pageable_device_local_memory
-16:13:30: Found device extension: VK_EXT_pipeline_creation_cache_control
-16:13:30: Found device extension: VK_EXT_pipeline_creation_feedback
-16:13:30: Found device extension: VK_EXT_primitive_topology_list_restart
-16:13:30: Found device extension: VK_EXT_private_data
-16:13:30: Found device extension: VK_EXT_provoking_vertex
-16:13:30: Found device extension: VK_EXT_queue_family_foreign
-16:13:30: Found device extension: VK_EXT_robustness2
-16:13:30: Found device extension: VK_EXT_sampler_filter_minmax
-16:13:30: Found device extension: VK_EXT_sample_locations
-16:13:30: Found device extension: VK_EXT_scalar_block_layout
-16:13:30: Found device extension: VK_EXT_separate_stencil_usage
-16:13:30: Found device extension: VK_EXT_shader_atomic_float
-16:13:30: Found device extension: VK_EXT_shader_demote_to_helper_invocation
-16:13:30: Found device extension: VK_EXT_shader_image_atomic_int64
-16:13:30: Found device extension: VK_EXT_shader_stencil_export
-16:13:30: Found device extension: VK_EXT_shader_subgroup_ballot
-16:13:30: Found device extension: VK_EXT_shader_subgroup_vote
-16:13:30: Found device extension: VK_EXT_shader_viewport_index_layer
-16:13:30: Found device extension: VK_EXT_subgroup_size_control
-16:13:30: Found device extension: VK_EXT_texel_buffer_alignment
-16:13:30: Found device extension: VK_EXT_tooling_info
-16:13:30: Found device extension: VK_EXT_transform_feedback
-16:13:30: Found device extension: VK_EXT_vertex_attribute_divisor
-16:13:30: Found device extension: VK_EXT_ycbcr_image_arrays
-16:13:30: Found device extension: VK_AMD_buffer_marker
-16:13:30: Found device extension: VK_AMD_calibrated_timestamps
-16:13:30: Found device extension: VK_AMD_device_coherent_memory
-16:13:30: Found device extension: VK_AMD_display_native_hdr
-16:13:30: Found device extension: VK_AMD_draw_indirect_count
-16:13:30: Found device extension: VK_AMD_gcn_shader
-16:13:30: Found device extension: VK_AMD_gpa_interface
-16:13:30: Found device extension: VK_AMD_gpu_shader_half_float
-16:13:30: Found device extension: VK_AMD_gpu_shader_int16
-16:13:30: Found device extension: VK_AMD_memory_overallocation_behavior
-16:13:30: Found device extension: VK_AMD_mixed_attachment_samples
-16:13:30: Found device extension: VK_AMD_pipeline_compiler_control
-16:13:30: Found device extension: VK_AMD_rasterization_order
-16:13:30: Found device extension: VK_AMD_shader_ballot
-16:13:30: Found device extension: VK_AMD_shader_core_properties
-16:13:30: Found device extension: VK_AMD_shader_core_properties2
-16:13:30: Found device extension: VK_AMD_shader_early_and_late_fragment_tests
-16:13:30: Found device extension: VK_AMD_shader_explicit_vertex_parameter
-16:13:30: Found device extension: VK_AMD_shader_fragment_mask
-16:13:30: Found device extension: VK_AMD_shader_image_load_store_lod
-16:13:30: Found device extension: VK_AMD_shader_info
-16:13:30: Found device extension: VK_AMD_shader_trinary_minmax
-16:13:30: Found device extension: VK_AMD_texture_gather_bias_lod
-16:13:30: Found device extension: VK_AMD_wave_limits
-16:13:30: Found device extension: VK_GOOGLE_decorate_string
-16:13:30: Found device extension: VK_GOOGLE_hlsl_functionality1
-16:13:30: Found device extension: VK_GOOGLE_user_type
-16:13:30: Requesting Extension: VK_KHR_16bit_storage
-16:13:30: Requesting Extension: VK_KHR_maintenance2
-16:13:30: Requesting Extension: VK_KHR_shader_float16_int8
-16:13:30: Requesting Extension: VK_KHR_storage_buffer_storage_class
-16:13:30: Requesting Extension: VK_EXT_shader_subgroup_vote
-16:13:30: Requesting Extension: VK_EXT_shader_viewport_index_layer
-16:13:30: Requesting Extension: VK_KHR_swapchain
-16:13:30: [Vulkan] API Version: 1.3.217 (0x4030d9)
-16:13:30: [Vulkan] Driver Version (raw): 0x8000e9
-16:13:30: [Vulkan] Vendor ID: 0x1002
-16:13:30: [Vulkan] Device ID: 0x1638
-16:13:30: Registering ResourceManager for type GpuProgram
-16:13:30: RenderSystem capabilities
-16:13:30: -------------------------
-16:13:30: RenderSystem Name: Vulkan Rendering Subsystem
-16:13:30: GPU Vendor: amd
-16:13:30: Device Name: AMD Radeon(TM) Graphics
-16:13:30: Driver Version: 2.0.233.0
-16:13:30:  * Fixed function pipeline: no
-16:13:30:  * Hardware generation of mipmaps: yes
-16:13:30:  * Texture blending: yes
-16:13:30:  * Anisotropic texture filtering: yes
-16:13:30:  * Dot product texture operation: yes
-16:13:30:  * Cube mapping: yes
-16:13:30:  * Hardware stencil buffer: yes
-16:13:30:    - Stencil depth: 8
-16:13:30:    - Two sided stencil support: yes
-16:13:30:    - Wrap stencil values: yes
-16:13:30:  * Hardware vertex / index buffers: yes
-16:13:30:  * 32-bit index buffers: no
-16:13:30:  * Vertex programs: no
-16:13:30:  * Number of floating-point constants for vertex programs: 256
-16:13:30:  * Number of integer constants for vertex programs: 256
-16:13:30:  * Number of boolean constants for vertex programs: 256
-16:13:30:  * Fragment programs: no
-16:13:30:  * Number of floating-point constants for fragment programs: 256
-16:13:30:  * Number of integer constants for fragment programs: 256
-16:13:30:  * Number of boolean constants for fragment programs: 256
-16:13:30:  * Geometry programs: no
-16:13:30:  * Number of floating-point constants for geometry programs: 256
-16:13:30:  * Number of integer constants for geometry programs: 256
-16:13:30:  * Number of boolean constants for geometry programs: 256
-16:13:30:  * Tessellation Hull programs: no
-16:13:30:  * Number of floating-point constants for tessellation hull programs: 256
-16:13:30:  * Number of integer constants for tessellation hull programs: 256
-16:13:30:  * Number of boolean constants for tessellation hull programs: 256
-16:13:30:  * Tessellation Domain programs: no
-16:13:30:  * Number of floating-point constants for tessellation domain programs: 256
-16:13:30:  * Number of integer constants for tessellation domain programs: 256
-16:13:30:  * Number of boolean constants for tessellation domain programs: 256
-16:13:30:  * Compute programs: yes
-16:13:30:  * Number of floating-point constants for compute programs: 256
-16:13:30:  * Number of integer constants for compute programs: 256
-16:13:30:  * Number of boolean constants for compute programs: 256
-16:13:30:  * Supported Shader Profiles: glsl glslvk hlsl hlslvk
-16:13:30:  * Texture Compression: yes
-16:13:30:    - DXT: yes
-16:13:30:    - VTC: no
-16:13:30:    - PVRTC: no
-16:13:30:    - ATC: no
-16:13:30:    - ETC1: no
-16:13:30:    - ETC2: no
-16:13:30:    - BC4/BC5: yes
-16:13:30:    - BC6H/BC7: yes
-16:13:30:    - ASTC: no
-16:13:30:  * Hardware Occlusion Query: no
-16:13:30:  * User clip planes: yes
-16:13:30:  * VET_UBYTE4 vertex element type: yes
-16:13:30:  * Infinite far plane projection: yes
-16:13:30:  * Hardware render-to-texture: yes
-16:13:30:  * Floating point textures: yes
-16:13:30:  * Non-power-of-two textures: yes
-16:13:30:  * 1d textures: yes
-16:13:30:  * Volume textures: yes
-16:13:30:  * Max Texture resolution (2D) 16384
-16:13:30:  * Max Texture resolution (3D) 4096
-16:13:30:  * Max Texture resolution (Cubemaps) 16384
-16:13:30:  * Multiple Render Targets: 1
-16:13:30:    - With different bit depths: no
-16:13:30:  * Point Sprites: yes
-16:13:30:  * Extended point parameters: yes
-16:13:30:  * Max Point Size: 256
-16:13:30:  * Vertex texture fetch: no
-16:13:30:  * Number of world matrices: 0
-16:13:30:  * Number of texture units: 32
-16:13:30:  * Stencil buffer depth: 8
-16:13:30:  * Number of vertex blend matrices: 0
-16:13:30:  * Render to Vertex Buffer : no
-16:13:30:  * Hardware Atomic Counters: no
-16:13:30:  * Shader 16-bit floating point (half): yes
-16:13:30:  * Compute max threads per threadgroup per axis: 1024, 1024, 1024
-16:13:30:  * Compute max threads per threadgroup total: 1024
-16:13:30:  * Using Reverse Z: yes
-16:13:30: Supported memory types for general buffer usage: 15
-16:13:30: Supported memory types for reading: 15
-16:13:30: VkDevice will use coherent memory buffers: true
-16:13:30: VkDevice will use non-coherent memory buffers: false
-16:13:30: VkDevice will use coherent memory for reading: true
-16:13:30: VkDevice read memory is coherent: true
-16:13:30: Trying presentMode = IMMEDIATE_KHR
-16:13:30: Chosen presentMode = IMMEDIATE_KHR
-16:13:30: surfaceCaps.currentTransform = 1
-16:13:30: DefaultWorkQueue('Root') initialising on thread main.
-16:13:30:  _hlmsMacroblockCreated 
-16:13:30:  _hlmsBlendblockCreated 
-16:13:30: Particle Renderer Type 'billboard' registered
-16:13:30: OverlayElementFactory for type Panel registered.
-16:13:30: OverlayElementFactory for type BorderPanel registered.
-16:13:30: OverlayElementFactory for type TextArea registered.
-16:13:30: Registering ResourceManager for type Font
-16:13:30: Creating resource group Essential
-16:13:30: Added resource location 'D:/OGRE_NEXT/ogre-next-custom/Samples/Media/packs/DebugPack.zip' of type 'Zip' to resource group 'Essential'
-16:13:30: Added resource location 'D:/OGRE_NEXT/ogre-next-custom/Samples/Media/packs/CornellBox.zip' of type 'Zip' to resource group 'Essential'
-16:13:30: Added resource location 'D:/OGRE_NEXT/ogre-next-custom/Samples/Media/2.0/scripts/materials/Common' of type 'FileSystem' to resource group 'General'
-16:13:30: Added resource location 'D:/OGRE_NEXT/ogre-next-custom/Samples/Media/2.0/scripts/materials/Common/Any' of type 'FileSystem' to resource group 'General'
-16:13:30: Added resource location 'D:/OGRE_NEXT/ogre-next-custom/Samples/Media/2.0/scripts/materials/Common/GLSL' of type 'FileSystem' to resource group 'General'
-16:13:30: Added resource location 'D:/OGRE_NEXT/ogre-next-custom/Samples/Media/2.0/scripts/materials/Common/GLSLES' of type 'FileSystem' to resource group 'General'
-16:13:30: Added resource location 'D:/OGRE_NEXT/ogre-next-custom/Samples/Media/2.0/scripts/materials/Common/HLSL' of type 'FileSystem' to resource group 'General'
-16:13:30: Added resource location 'D:/OGRE_NEXT/ogre-next-custom/Samples/Media/2.0/scripts/materials/Common/Metal' of type 'FileSystem' to resource group 'General'
-16:13:30: Added resource location 'D:/OGRE_NEXT/ogre-next-custom/Samples/Media/Hlms/Common/Any' of type 'FileSystem' to resource group 'General'
-16:13:30: Added resource location 'D:/OGRE_NEXT/ogre-next-custom/Samples/Media/Hlms/Common/GLSL' of type 'FileSystem' to resource group 'General'
-16:13:30: Added resource location 'D:/OGRE_NEXT/ogre-next-custom/Samples/Media/Hlms/Common/HLSL' of type 'FileSystem' to resource group 'General'
-16:13:30: Added resource location 'D:/OGRE_NEXT/ogre-next-custom/Samples/Media/Hlms/Common/Metal' of type 'FileSystem' to resource group 'General'
-16:13:30: Added resource location 'D:/OGRE_NEXT/ogre-next-custom/Samples/Media/Compute/Algorithms/IBL' of type 'FileSystem' to resource group 'General'
-16:13:30: Added resource location 'D:/OGRE_NEXT/ogre-next-custom/Samples/Media/Compute/Tools/Any' of type 'FileSystem' to resource group 'General'
-16:13:30: Creating resource group Popular
-16:13:30: Added resource location 'D:/OGRE_NEXT/ogre-next-custom/Samples/Media/2.0/scripts/Compositors' of type 'FileSystem' to resource group 'Popular'
-16:13:30: Added resource location 'D:/OGRE_NEXT/ogre-next-custom/Samples/Media/models' of type 'FileSystem' to resource group 'Popular'
-16:13:30: Added resource location 'D:/OGRE_NEXT/ogre-next-custom/Samples/Media/materials/textures' of type 'FileSystem' to resource group 'Popular'
-16:13:30: Added resource location 'D:/OGRE_NEXT/ogre-next-custom/Samples/Media/materials/textures/Cubemaps' of type 'FileSystem' to resource group 'Popular'
-16:13:30: Added resource location 'D:/OGRE_NEXT_MESH' of type 'FileSystem' to resource group 'Popular'
-16:13:30: Added resource location 'D:/OGRE_NEXT/ogre-next-custom/Samples/Media/2.0/scripts/materials/PbsMaterials' of type 'FileSystem' to resource group 'General'
-16:13:30: Added resource location 'D:/OGRE_NEXT/ogre-next-custom/Samples/Media/2.0/scripts/materials/UpdatingDecalsAndAreaLightTex' of type 'FileSystem' to resource group 'General'
-16:13:30:  _hlmsSamplerblockCreated 
-16:13:30:  _hlmsSamplerblockCreated 
-16:13:30:  _hlmsSamplerblockCreated 
-16:13:30:  _hlmsSamplerblockCreated 
-16:13:30: Loading HlmsDiskCache from hlmsDiskCache1.bin
-16:13:30:  _hlmsMacroblockCreated 
-16:13:30:  _hlmsMacroblockCreated 
-16:13:30: Applying HlmsDiskCache 1
-16:13:31: Shader 100000000VertexShader_vs compiled successfully.
-16:13:31: Shader 100000000PixelShader_ps compiled successfully.
-16:13:31: Shader 100000001VertexShader_vs compiled successfully.
-16:13:31: Shader 100000001PixelShader_ps compiled successfully.
-16:13:31: Loading HlmsDiskCache from hlmsDiskCache3.bin
-16:13:31:  _hlmsMacroblockCreated 
-16:13:31:  _hlmsMacroblockCreated 
-16:13:31:  _hlmsBlendblockCreated 
-16:13:31: Applying HlmsDiskCache 3
-16:13:31: Shader 300000000VertexShader_vs compiled successfully.
-16:13:31: Shader 300000000PixelShader_ps compiled successfully.
-16:13:31: Shader 300000001VertexShader_vs compiled successfully.
-16:13:31: Shader 300000001PixelShader_ps compiled successfully.
-16:13:31: Parsing scripts for resource group Autodetect
-16:13:31: Finished parsing scripts for resource group Autodetect
-16:13:31: Creating resources for group Autodetect
-16:13:31: All done
-16:13:31: Parsing scripts for resource group Essential
-16:13:31: Parsing script Materials.material
-16:13:31: Parsing script CornellBox.material.json
-16:13:31:  _hlmsMacroblockCreated 
-16:13:31: Parsing script DebugFont.fontdef
-16:13:31: Finished parsing scripts for resource group Essential
-16:13:31: Creating resources for group Essential
-16:13:31: All done
-16:13:31: Parsing scripts for resource group General
-16:13:31: Parsing script Quad.program
-16:13:31: Shader Ogre/Compositor/Quad_vs_VK compiled successfully.
-16:13:31: Shader Ogre/Compositor/QuadCameraDir_vs_VK compiled successfully.
-16:13:31: Shader Ogre/Compositor/QuadCameraDirNoUV_vs_VK compiled successfully.
-16:13:31: Parsing script Atmosphere.material
-16:13:31: Shader Ogre/Atmo/NprSky_ps_VK compiled successfully.
-16:13:31:  _hlmsMacroblockCreated 
-16:13:31: Parsing script Copyback.material
-16:13:31: Shader Ogre/Copy/4xFP32_ps_VK compiled successfully.
-16:13:31:  _hlmsSamplerblockCreated 
-16:13:31:  _hlmsSamplerblockCreated 
-16:13:31:  _hlmsMacroblockCreated 
-16:13:31: Shader Ogre/Copy/4xFP32_2DArray_ps_VK compiled successfully.
-16:13:31:  _hlmsSamplerblockCreated 
-16:13:31:  _hlmsSamplerblockCreated 
-16:13:31: Shader Ogre/Copy/1xFP32_ps_VK compiled successfully.
-16:13:31: Shader Ogre/Resolve/1xFP32_Subsample0_ps_VK compiled successfully.
-16:13:31:  _hlmsSamplerblockCreated 
-16:13:31: Parsing script DepthUtils.material
-16:13:31: Shader Ogre/Depth/DownscaleMax_ps_VK compiled successfully.
-16:13:31:  _hlmsSamplerblockCreated 
-16:13:31:  _hlmsMacroblockCreated 
-16:13:31: Parsing script DPM.material
-16:13:31: Shader Ogre/DPM/CubeToDpm_4xFP16_ps_VK compiled successfully.
-16:13:31:  _hlmsSamplerblockCreated 
-16:13:31:  _hlmsSamplerblockCreated 
-16:13:31:  _hlmsMacroblockCreated 
-16:13:31: Parsing script DPSM.material
-16:13:31: Shader Ogre/DPSM/CubeToDpsm_ps_VK compiled successfully.
-16:13:31:  _hlmsSamplerblockCreated 
-16:13:31: Shader Ogre/DPSM/CubeToDpsm_Colour_ps_VK compiled successfully.
-16:13:31:  _hlmsSamplerblockCreated 
-16:13:31: Parsing script EsmGaussianBlurLogFilter.material
-16:13:31: Shader ESM/GaussianLogFilterH_ps_VK compiled successfully.
-16:13:31: Shader ESM/GaussianLogFilterV_ps_VK compiled successfully.
-16:13:31:  _hlmsSamplerblockCreated 
-16:13:31:  _hlmsSamplerblockCreated 
-16:13:31: Parsing script HiddenAreaMeshVr.material
-16:13:31: Shader Ogre/VR/HiddenAreaMeshVr_vs_VK compiled successfully.
-16:13:31: Shader Ogre/VR/HiddenAreaMeshVr_ps_VK compiled successfully.
-16:13:31:  _hlmsBlendblockCreated 
-16:13:31: Parsing script PccDepthCompressor.material
-16:13:31: Shader PccDepthCompressor_ps_VK compiled successfully.
-16:13:31:  _hlmsSamplerblockCreated 
-16:13:31:  _hlmsBlendblockCreated 
-16:13:31: Parsing script RadialDensityMask.material
-16:13:31: Shader Ogre/Compositor/RadialDensityMask_vs_VK compiled successfully.
-16:13:31: Shader Ogre/VR/RadialDensityMask_ps_VK compiled successfully.
-16:13:31:  _hlmsMacroblockCreated 
-16:13:31: Parsing script Sky.material
-16:13:31: Shader Ogre/Sky/Cubemap_ps_VK compiled successfully.
-16:13:31:  _hlmsSamplerblockCreated 
-16:13:31:  _hlmsSamplerblockCreated 
-16:13:31: Shader Ogre/Sky/Equirectangular_ps_VK compiled successfully.
-16:13:31:  _hlmsSamplerblockCreated 
-16:13:31: Parsing script PbsMaterials.material
-16:13:31:  _hlmsSamplerblockCreated 
-16:13:31: Parsing script Materials.material
-16:13:31: Parsing script EsmGaussianBlurLogFilter.material.json
-16:13:31:  _hlmsSamplerblockCreated 
-16:13:31: Parsing script Mipmaps.material.json
-16:13:31: Parsing script IBL.material.json
-16:13:31: Finished parsing scripts for resource group General
-16:13:31: Creating resources for group General
-16:13:31: All done
-16:13:31: Parsing scripts for resource group Internal
-16:13:31: Finished parsing scripts for resource group Internal
-16:13:31: Creating resources for group Internal
-16:13:31: All done
-16:13:31: Parsing scripts for resource group Popular
-16:13:31: Parsing script Material.material
-16:13:31: Compiler error: unknown error in Material.material(8): token class, rtshader_system, unrecognized.
-16:13:31: Compiler error: unknown error in Material.material(8): token "rtshader_system" is not recognized
-16:13:31: Parsing script InstancedStereo.compositor
-16:13:31: Parsing script IrradianceFieldRaster.compositor
-16:13:31: Parsing script LocalCubemaps.compositor
-16:13:31: Parsing script PbsMaterials.compositor
-16:13:31: Parsing script PlanarReflections.compositor
-16:13:31: Parsing script Refractions.compositor
-16:13:31: Parsing script ScreenSpaceReflections.compositor
-16:13:31: Parsing script ShadowMapDebugging.compositor
-16:13:31: Parsing script StaticShadowMaps.compositor
-16:13:31: Parsing script StencilTest.compositor
-16:13:31: Parsing script StereoRendering.compositor
-16:13:31: Parsing script TutorialSky_Postprocess.compositor
-16:13:31: Parsing script TutorialUav01_Setup.compositor
-16:13:31: Parsing script TutorialUav02_Setup.compositor
-16:13:31: Parsing script Tutorial_DynamicCubemap.compositor
-16:13:31: Parsing script Tutorial_OpenVRWorkspace.compositor
-16:13:31: Parsing script Tutorial_ReconstructPosFromDepth.compositor
-16:13:32: Parsing script Tutorial_Terrain.compositor
-16:13:32: Parsing script UvBaking.compositor
-16:13:32: Finished parsing scripts for resource group Popular
-16:13:32: Creating resources for group Popular
-16:13:32: All done
-16:13:32: Mesh: Loading Cube.003.mesh.
-16:13:32: Skeleton: Loading Cube.003.skeleton
-16:13:32: OGRE EXCEPTION(3:RenderingAPIException): Fixed Function pipeline is no longer allowed nor supported. The material Material must use shaders in HlmsLowLevel::calculateHashFor at D:\OGRE_NEXT\ogre-next-custom\OgreMain\src\OgreHlmsLowLevel.cpp (line 159)
-16:13:32: OGRE EXCEPTION(3:RenderingAPIException): Fixed Function pipeline is no longer allowed nor supported. The material Material must use shaders in HlmsLowLevel::calculateHashFor at D:\OGRE_NEXT\ogre-next-custom\OgreMain\src\OgreHlmsLowLevel.cpp (line 159)
-16:13:32: Couldn't apply datablock '[Value 0x00000024]' to this renderable. Using default one. Check previous log messages to see if there's more information.
-16:13:32:  _hlmsSamplerblockCreated 
-16:13:32: Texture memory budget exceeded. Stalling GPU.
-16:13:32: Font DebugFont using texture size 512x512
-16:13:32: Info: Freetype returned null for character 127 in font DebugFont
-16:13:32: Info: Freetype returned null for character 128 in font DebugFont
-16:13:32: Info: Freetype returned null for character 129 in font DebugFont
-16:13:32: Info: Freetype returned null for character 130 in font DebugFont
-16:13:32: Info: Freetype returned null for character 131 in font DebugFont
-16:13:32: Info: Freetype returned null for character 132 in font DebugFont
-16:13:32: Info: Freetype returned null for character 133 in font DebugFont
-16:13:32: Info: Freetype returned null for character 134 in font DebugFont
-16:13:32: Info: Freetype returned null for character 135 in font DebugFont
-16:13:32: Info: Freetype returned null for character 136 in font DebugFont
-16:13:32: Info: Freetype returned null for character 137 in font DebugFont
-16:13:32: Info: Freetype returned null for character 138 in font DebugFont
-16:13:32: Info: Freetype returned null for character 139 in font DebugFont
-16:13:32: Info: Freetype returned null for character 140 in font DebugFont
-16:13:32: Info: Freetype returned null for character 141 in font DebugFont
-16:13:32: Info: Freetype returned null for character 142 in font DebugFont
-16:13:32: Info: Freetype returned null for character 143 in font DebugFont
-16:13:32: Info: Freetype returned null for character 144 in font DebugFont
-16:13:32: Info: Freetype returned null for character 145 in font DebugFont
-16:13:32: Info: Freetype returned null for character 146 in font DebugFont
-16:13:32: Info: Freetype returned null for character 147 in font DebugFont
-16:13:32: Info: Freetype returned null for character 148 in font DebugFont
-16:13:32: Info: Freetype returned null for character 149 in font DebugFont
-16:13:32: Info: Freetype returned null for character 150 in font DebugFont
-16:13:32: Info: Freetype returned null for character 151 in font DebugFont
-16:13:32: Info: Freetype returned null for character 152 in font DebugFont
-16:13:32: Info: Freetype returned null for character 153 in font DebugFont
-16:13:32: Info: Freetype returned null for character 154 in font DebugFont
-16:13:32: Info: Freetype returned null for character 155 in font DebugFont
-16:13:32: Info: Freetype returned null for character 156 in font DebugFont
-16:13:32: Info: Freetype returned null for character 157 in font DebugFont
-16:13:32: Info: Freetype returned null for character 158 in font DebugFont
-16:13:32: Info: Freetype returned null for character 159 in font DebugFont
-16:13:32: Info: Freetype returned null for character 160 in font DebugFont
-16:13:32:  _hlmsBlendblockCreated 
-16:13:32:  _hlmsSamplerblockCreated 
-16:13:32: Trying presentMode = IMMEDIATE_KHR
-16:13:32: Chosen presentMode = IMMEDIATE_KHR
-16:13:32: surfaceCaps.currentTransform = 1
-16:13:33: Trying presentMode = IMMEDIATE_KHR
-16:13:33: Chosen presentMode = IMMEDIATE_KHR
-16:13:33: surfaceCaps.currentTransform = 1
-16:13:36: Trying presentMode = IMMEDIATE_KHR
-16:13:36: Chosen presentMode = IMMEDIATE_KHR
-16:13:36: surfaceCaps.currentTransform = 1
+18:29:35: Creating resource group General
+18:29:35: Creating resource group Internal
+18:29:35: Creating resource group Autodetect
+18:29:35: SceneManagerFactory for type 'DefaultSceneManager' registered.
+18:29:35: Registering ResourceManager for type Material
+18:29:35: Registering ResourceManager for type Mesh
+18:29:35: Registering ResourceManager for type Mesh2
+18:29:35: Registering ResourceManager for type OldSkeleton
+18:29:35: MovableObjectFactory for type 'ParticleSystem' registered.
+18:29:35: ArchiveFactory for archive type FileSystem registered.
+18:29:35: ArchiveFactory for archive type Zip registered.
+18:29:35: ArchiveFactory for archive type EmbeddedZip registered.
+18:29:35: DDS codec registering
+18:29:35: FreeImage version: 3.18.0
+18:29:35: This program uses FreeImage, a free, open source image library supporting all common bitmap formats. See http://freeimage.sourceforge.net for details
+18:29:35: Supported formats: bmp,ico,jpg,jif,jpeg,jpe,jng,koa,iff,lbm,mng,pbm,pbm,pcd,pcx,pgm,pgm,png,ppm,ppm,ras,tga,targa,tif,tiff,wap,wbmp,wbm,psd,psb,cut,xbm,xpm,gif,hdr,g3,sgi,rgb,rgba,bw,exr,j2k,j2c,jp2,pfm,pct,pict,pic,3fr,arw,bay,bmq,cap,cine,cr2,crw,cs1,dc2,dcr,drf,dsc,dng,erf,fff,ia,iiq,k25,kc2,kdc,mdc,mef,mos,mrw,nef,nrw,orf,pef,ptx,pxn,qtk,raf,raw,rdc,rw2,rwl,rwz,sr2,srf,srw,sti,x3f,webp
+18:29:35: ETC codec registering
+18:29:35: OITD codec registering
+18:29:35: Registering ResourceManager for type HighLevelGpuProgram
+18:29:35: MovableObjectFactory for type 'Decal' registered.
+18:29:35: MovableObjectFactory for type 'InternalCubemapProbe' registered.
+18:29:35: MovableObjectFactory for type 'Entity' registered.
+18:29:35: MovableObjectFactory for type 'Item' registered.
+18:29:35: MovableObjectFactory for type 'Light' registered.
+18:29:35: MovableObjectFactory for type 'Rectangle2Dv2' registered.
+18:29:35: MovableObjectFactory for type 'BillboardSet' registered.
+18:29:35: MovableObjectFactory for type 'ManualObject2' registered.
+18:29:35: MovableObjectFactory for type 'BillboardChain' registered.
+18:29:35: MovableObjectFactory for type 'RibbonTrail' registered.
+18:29:35: MovableObjectFactory for type 'WireAabb' registered.
+18:29:35: Loading library .\RenderSystem_Direct3D11_d
+18:29:35: Installing plugin: D3D11 RenderSystem
+18:29:35: D3D11: Direct3D11 Rendering Subsystem created.
+18:29:35: D3D11: Driver Detection Starts
+18:29:35: D3D11: "AMD Radeon(TM) Graphics"
+18:29:35: D3D11: "NVIDIA GeForce RTX 3050 Laptop GPU"
+18:29:35: D3D11: "Microsoft Basic Render Driver (software)"
+18:29:35: D3D11: Driver Detection Ends
+18:29:35: Plugin successfully installed
+18:29:35: Loading library .\RenderSystem_GL3Plus_d
+18:29:35: Installing plugin: GL 3+ RenderSystem
+18:29:35: OpenGL 3+ Rendering Subsystem created.
+18:29:36: Plugin successfully installed
+18:29:36: Loading library .\RenderSystem_Vulkan_d
+18:29:36: Installing plugin: Vulkan RenderSystem
+18:29:36: [Vulkan] Initializing VkInstance
+18:29:37: Found instance extension: VK_KHR_device_group_creation
+18:29:37: Found instance extension: VK_KHR_display
+18:29:37: Found instance extension: VK_KHR_external_fence_capabilities
+18:29:37: Found instance extension: VK_KHR_external_memory_capabilities
+18:29:37: Found instance extension: VK_KHR_external_semaphore_capabilities
+18:29:37: Found instance extension: VK_KHR_get_display_properties2
+18:29:37: Found instance extension: VK_KHR_get_physical_device_properties2
+18:29:37: Found instance extension: VK_KHR_get_surface_capabilities2
+18:29:37: Found instance extension: VK_KHR_surface
+18:29:37: Found instance extension: VK_KHR_surface_protected_capabilities
+18:29:37: Found instance extension: VK_KHR_win32_surface
+18:29:37: Found instance extension: VK_EXT_debug_report
+18:29:37: Found instance extension: VK_EXT_debug_utils
+18:29:37: Found instance extension: VK_EXT_direct_mode_display
+18:29:37: Found instance extension: VK_EXT_swapchain_colorspace
+18:29:37: Found instance extension: VK_NV_external_memory_capabilities
+18:29:37: Found instance extension: VK_KHR_portability_enumeration
+18:29:37: Found instance layer: VK_LAYER_NV_optimus
+18:29:37: Found instance layer: VK_LAYER_AMD_switchable_graphics
+18:29:37: Found instance layer: VK_LAYER_OBS_HOOK
+18:29:37: Found instance layer: VK_LAYER_VALVE_steam_overlay
+18:29:37: Found instance layer: VK_LAYER_VALVE_steam_fossilize
+18:29:37: WARNING: VK_LAYER_KHRONOS_validation layer not present. Extension VK_EXT_debug_marker not found
+18:29:37: Requesting Instance Extension: VK_KHR_get_physical_device_properties2
+18:29:37: Requesting Instance Extension: VK_KHR_win32_surface
+18:29:37: Requesting Instance Extension: VK_EXT_debug_report
+18:29:37: Requesting Instance Extension: VK_EXT_debug_utils
+18:29:37: Requesting Instance Extension: VK_KHR_surface
+18:29:37: ERROR: [Loader Message] Code 0 : loader_get_json: Failed to open JSON file D:\VulkanSDK\1.3.236.0\Bin\VkLayer_api_dump.json
+18:29:37: ERROR: [Loader Message] Code 0 : loader_get_json: Failed to open JSON file D:\VulkanSDK\1.3.236.0\Bin\VkLayer_gfxreconstruct.json
+18:29:37: ERROR: [Loader Message] Code 0 : loader_get_json: Failed to open JSON file D:\VulkanSDK\1.3.236.0\Bin\VkLayer_khronos_synchronization2.json
+18:29:37: ERROR: [Loader Message] Code 0 : loader_get_json: Failed to open JSON file D:\VulkanSDK\1.3.236.0\Bin\VkLayer_khronos_validation.json
+18:29:37: ERROR: [Loader Message] Code 0 : loader_get_json: Failed to open JSON file D:\VulkanSDK\1.3.236.0\Bin\VkLayer_monitor.json
+18:29:37: ERROR: [Loader Message] Code 0 : loader_get_json: Failed to open JSON file D:\VulkanSDK\1.3.236.0\Bin\VkLayer_screenshot.json
+18:29:37: ERROR: [Loader Message] Code 0 : loader_get_json: Failed to open JSON file D:\VulkanSDK\1.3.236.0\Bin\VkLayer_khronos_profiles.json
+18:29:37: [Vulkan] Found 2 devices
+18:29:37: [Vulkan] Found devices:
+18:29:37: AMD Radeon(TM) Graphics #0
+18:29:37: NVIDIA GeForce RTX 3050 Laptop GPU #1
+18:29:37: Plugin successfully installed
+18:29:37: Loading library .\Plugin_ParticleFX_d
+18:29:37: Installing plugin: ParticleFX
+18:29:37: Particle Emitter Type 'Point' registered
+18:29:37: Particle Emitter Type 'Box' registered
+18:29:37: Particle Emitter Type 'Ellipsoid' registered
+18:29:37: Particle Emitter Type 'Cylinder' registered
+18:29:37: Particle Emitter Type 'Ring' registered
+18:29:37: Particle Emitter Type 'HollowEllipsoid' registered
+18:29:37: Particle Affector Type 'LinearForce' registered
+18:29:37: Particle Affector Type 'ColourFader' registered
+18:29:37: Particle Affector Type 'ColourFader2' registered
+18:29:37: Particle Affector Type 'ColourImage' registered
+18:29:37: Particle Affector Type 'ColourInterpolator' registered
+18:29:37: Particle Affector Type 'ScaleInterpolator' registered
+18:29:37: Particle Affector Type 'Scaler' registered
+18:29:37: Particle Affector Type 'Rotator' registered
+18:29:37: Particle Affector Type 'DirectionRandomiser' registered
+18:29:37: Particle Affector Type 'DeflectorPlane' registered
+18:29:37: Plugin successfully installed
+18:29:37: *-*-* OGRE Initialising
+18:29:37: *-*-* Version 3.0.0unstable (E)
+18:29:37: D3D11: RenderSystem Option: Rendering Device = (default)
+18:29:37: D3D11: RenderSystem Option: Allow NVPerfHUD = No
+18:29:37: D3D11: RenderSystem Option: Backbuffer Count = Auto
+18:29:37: D3D11: RenderSystem Option: Driver type = Hardware
+18:29:37: D3D11: RenderSystem Option: FSAA = 1x MSAA
+18:29:37: D3D11: RenderSystem Option: Fast Shader Build Hack = Yes
+18:29:37: D3D11: RenderSystem Option: Floating-point mode = Fastest
+18:29:37: D3D11: RenderSystem Option: Full Screen = Yes
+18:29:37: D3D11: RenderSystem Option: Information Queue Exceptions Bottom Level = Info (exception on any message)
+18:29:37: D3D11: RenderSystem Option: Max Requested Feature Levels = 11.1
+18:29:37: D3D11: RenderSystem Option: Min Requested Feature Levels = 9.1
+18:29:37: D3D11: RenderSystem Option: VSync = No
+18:29:37: D3D11: RenderSystem Option: VSync Interval = 1
+18:29:37: D3D11: RenderSystem Option: Vendor Extensions = Auto
+18:29:37: D3D11: RenderSystem Option: Video Mode = 1920 x 1080 @ 32-bit colour
+18:29:37: D3D11: RenderSystem Option: sRGB Gamma Conversion = Yes
+18:29:39: CPU Identifier & Features
+18:29:39: -------------------------
+18:29:39:  *   CPU ID: AuthenticAMD: AMD Ryzen 5 5600H with Radeon Graphics
+18:29:39:  *   Logical cores: 12
+18:29:39:  *      SSE: yes
+18:29:39:  *     SSE2: yes
+18:29:39:  *     SSE3: yes
+18:29:39:  *      MMX: yes
+18:29:39:  *   MMXEXT: yes
+18:29:39:  *    3DNOW: no
+18:29:39:  * 3DNOWEXT: no
+18:29:39:  *     CMOV: yes
+18:29:39:  *      TSC: yes
+18:29:39:  *      FPU: yes
+18:29:39:  *      PRO: yes
+18:29:39:  *       HT: no
+18:29:39: -------------------------
+18:29:39: [Vulkan] Found 2 devices
+18:29:39: [Vulkan] Selecting device 0
+18:29:39: Found device extension: VK_KHR_16bit_storage
+18:29:39: Found device extension: VK_KHR_8bit_storage
+18:29:39: Found device extension: VK_KHR_bind_memory2
+18:29:39: Found device extension: VK_KHR_buffer_device_address
+18:29:39: Found device extension: VK_KHR_copy_commands2
+18:29:39: Found device extension: VK_KHR_create_renderpass2
+18:29:39: Found device extension: VK_KHR_dedicated_allocation
+18:29:39: Found device extension: VK_KHR_depth_stencil_resolve
+18:29:39: Found device extension: VK_KHR_descriptor_update_template
+18:29:39: Found device extension: VK_KHR_device_group
+18:29:39: Found device extension: VK_KHR_draw_indirect_count
+18:29:39: Found device extension: VK_KHR_driver_properties
+18:29:39: Found device extension: VK_KHR_dynamic_rendering
+18:29:39: Found device extension: VK_KHR_external_fence
+18:29:39: Found device extension: VK_KHR_external_fence_win32
+18:29:39: Found device extension: VK_KHR_external_memory
+18:29:39: Found device extension: VK_KHR_external_memory_win32
+18:29:39: Found device extension: VK_KHR_external_semaphore
+18:29:39: Found device extension: VK_KHR_external_semaphore_win32
+18:29:39: Found device extension: VK_KHR_format_feature_flags2
+18:29:39: Found device extension: VK_KHR_get_memory_requirements2
+18:29:39: Found device extension: VK_KHR_global_priority
+18:29:39: Found device extension: VK_KHR_imageless_framebuffer
+18:29:39: Found device extension: VK_KHR_image_format_list
+18:29:39: Found device extension: VK_KHR_maintenance1
+18:29:39: Found device extension: VK_KHR_maintenance2
+18:29:39: Found device extension: VK_KHR_maintenance3
+18:29:39: Found device extension: VK_KHR_maintenance4
+18:29:39: Found device extension: VK_KHR_multiview
+18:29:39: Found device extension: VK_KHR_pipeline_executable_properties
+18:29:39: Found device extension: VK_KHR_pipeline_library
+18:29:39: Found device extension: VK_KHR_push_descriptor
+18:29:39: Found device extension: VK_KHR_relaxed_block_layout
+18:29:39: Found device extension: VK_KHR_sampler_mirror_clamp_to_edge
+18:29:39: Found device extension: VK_KHR_sampler_ycbcr_conversion
+18:29:39: Found device extension: VK_KHR_separate_depth_stencil_layouts
+18:29:39: Found device extension: VK_KHR_shader_atomic_int64
+18:29:39: Found device extension: VK_KHR_shader_clock
+18:29:39: Found device extension: VK_KHR_shader_draw_parameters
+18:29:39: Found device extension: VK_KHR_shader_float16_int8
+18:29:39: Found device extension: VK_KHR_shader_float_controls
+18:29:39: Found device extension: VK_KHR_shader_integer_dot_product
+18:29:39: Found device extension: VK_KHR_shader_non_semantic_info
+18:29:39: Found device extension: VK_KHR_shader_subgroup_extended_types
+18:29:39: Found device extension: VK_KHR_shader_subgroup_uniform_control_flow
+18:29:39: Found device extension: VK_KHR_shader_terminate_invocation
+18:29:39: Found device extension: VK_KHR_spirv_1_4
+18:29:39: Found device extension: VK_KHR_storage_buffer_storage_class
+18:29:39: Found device extension: VK_KHR_swapchain
+18:29:39: Found device extension: VK_KHR_swapchain_mutable_format
+18:29:39: Found device extension: VK_KHR_synchronization2
+18:29:39: Found device extension: VK_KHR_timeline_semaphore
+18:29:39: Found device extension: VK_KHR_uniform_buffer_standard_layout
+18:29:39: Found device extension: VK_KHR_variable_pointers
+18:29:39: Found device extension: VK_KHR_vulkan_memory_model
+18:29:39: Found device extension: VK_KHR_win32_keyed_mutex
+18:29:39: Found device extension: VK_KHR_workgroup_memory_explicit_layout
+18:29:39: Found device extension: VK_KHR_zero_initialize_workgroup_memory
+18:29:39: Found device extension: VK_EXT_4444_formats
+18:29:39: Found device extension: VK_EXT_calibrated_timestamps
+18:29:39: Found device extension: VK_EXT_color_write_enable
+18:29:39: Found device extension: VK_EXT_conditional_rendering
+18:29:39: Found device extension: VK_EXT_conservative_rasterization
+18:29:39: Found device extension: VK_EXT_custom_border_color
+18:29:39: Found device extension: VK_EXT_depth_clip_control
+18:29:39: Found device extension: VK_EXT_depth_clip_enable
+18:29:39: Found device extension: VK_EXT_depth_range_unrestricted
+18:29:39: Found device extension: VK_EXT_descriptor_indexing
+18:29:39: Found device extension: VK_EXT_extended_dynamic_state
+18:29:39: Found device extension: VK_EXT_extended_dynamic_state2
+18:29:39: Found device extension: VK_EXT_external_memory_host
+18:29:39: Found device extension: VK_EXT_full_screen_exclusive
+18:29:39: Found device extension: VK_EXT_global_priority
+18:29:39: Found device extension: VK_EXT_global_priority_query
+18:29:39: Found device extension: VK_EXT_hdr_metadata
+18:29:39: Found device extension: VK_EXT_host_query_reset
+18:29:39: Found device extension: VK_EXT_image_robustness
+18:29:39: Found device extension: VK_EXT_image_view_min_lod
+18:29:39: Found device extension: VK_EXT_index_type_uint8
+18:29:39: Found device extension: VK_EXT_inline_uniform_block
+18:29:39: Found device extension: VK_EXT_line_rasterization
+18:29:39: Found device extension: VK_EXT_load_store_op_none
+18:29:39: Found device extension: VK_EXT_memory_budget
+18:29:39: Found device extension: VK_EXT_memory_priority
+18:29:39: Found device extension: VK_EXT_non_seamless_cube_map
+18:29:39: Found device extension: VK_EXT_pageable_device_local_memory
+18:29:39: Found device extension: VK_EXT_pipeline_creation_cache_control
+18:29:39: Found device extension: VK_EXT_pipeline_creation_feedback
+18:29:39: Found device extension: VK_EXT_primitive_topology_list_restart
+18:29:39: Found device extension: VK_EXT_private_data
+18:29:39: Found device extension: VK_EXT_provoking_vertex
+18:29:39: Found device extension: VK_EXT_queue_family_foreign
+18:29:39: Found device extension: VK_EXT_robustness2
+18:29:39: Found device extension: VK_EXT_sampler_filter_minmax
+18:29:39: Found device extension: VK_EXT_sample_locations
+18:29:39: Found device extension: VK_EXT_scalar_block_layout
+18:29:39: Found device extension: VK_EXT_separate_stencil_usage
+18:29:39: Found device extension: VK_EXT_shader_atomic_float
+18:29:39: Found device extension: VK_EXT_shader_demote_to_helper_invocation
+18:29:39: Found device extension: VK_EXT_shader_image_atomic_int64
+18:29:39: Found device extension: VK_EXT_shader_stencil_export
+18:29:39: Found device extension: VK_EXT_shader_subgroup_ballot
+18:29:39: Found device extension: VK_EXT_shader_subgroup_vote
+18:29:39: Found device extension: VK_EXT_shader_viewport_index_layer
+18:29:39: Found device extension: VK_EXT_subgroup_size_control
+18:29:39: Found device extension: VK_EXT_texel_buffer_alignment
+18:29:39: Found device extension: VK_EXT_tooling_info
+18:29:39: Found device extension: VK_EXT_transform_feedback
+18:29:39: Found device extension: VK_EXT_vertex_attribute_divisor
+18:29:39: Found device extension: VK_EXT_ycbcr_image_arrays
+18:29:39: Found device extension: VK_AMD_buffer_marker
+18:29:39: Found device extension: VK_AMD_calibrated_timestamps
+18:29:39: Found device extension: VK_AMD_device_coherent_memory
+18:29:39: Found device extension: VK_AMD_display_native_hdr
+18:29:39: Found device extension: VK_AMD_draw_indirect_count
+18:29:39: Found device extension: VK_AMD_gcn_shader
+18:29:39: Found device extension: VK_AMD_gpa_interface
+18:29:39: Found device extension: VK_AMD_gpu_shader_half_float
+18:29:39: Found device extension: VK_AMD_gpu_shader_int16
+18:29:39: Found device extension: VK_AMD_memory_overallocation_behavior
+18:29:39: Found device extension: VK_AMD_mixed_attachment_samples
+18:29:39: Found device extension: VK_AMD_pipeline_compiler_control
+18:29:39: Found device extension: VK_AMD_rasterization_order
+18:29:39: Found device extension: VK_AMD_shader_ballot
+18:29:39: Found device extension: VK_AMD_shader_core_properties
+18:29:39: Found device extension: VK_AMD_shader_core_properties2
+18:29:39: Found device extension: VK_AMD_shader_early_and_late_fragment_tests
+18:29:39: Found device extension: VK_AMD_shader_explicit_vertex_parameter
+18:29:39: Found device extension: VK_AMD_shader_fragment_mask
+18:29:39: Found device extension: VK_AMD_shader_image_load_store_lod
+18:29:39: Found device extension: VK_AMD_shader_info
+18:29:39: Found device extension: VK_AMD_shader_trinary_minmax
+18:29:39: Found device extension: VK_AMD_texture_gather_bias_lod
+18:29:39: Found device extension: VK_AMD_wave_limits
+18:29:39: Found device extension: VK_GOOGLE_decorate_string
+18:29:39: Found device extension: VK_GOOGLE_hlsl_functionality1
+18:29:39: Found device extension: VK_GOOGLE_user_type
+18:29:39: Requesting Extension: VK_KHR_16bit_storage
+18:29:39: Requesting Extension: VK_KHR_maintenance2
+18:29:39: Requesting Extension: VK_KHR_shader_float16_int8
+18:29:39: Requesting Extension: VK_KHR_storage_buffer_storage_class
+18:29:39: Requesting Extension: VK_EXT_shader_subgroup_vote
+18:29:39: Requesting Extension: VK_EXT_shader_viewport_index_layer
+18:29:39: Requesting Extension: VK_KHR_swapchain
+18:29:39: [Vulkan] API Version: 1.3.217 (0x4030d9)
+18:29:39: [Vulkan] Driver Version (raw): 0x8000e9
+18:29:39: [Vulkan] Vendor ID: 0x1002
+18:29:39: [Vulkan] Device ID: 0x1638
+18:29:39: Registering ResourceManager for type GpuProgram
+18:29:39: RenderSystem capabilities
+18:29:39: -------------------------
+18:29:39: RenderSystem Name: Vulkan Rendering Subsystem
+18:29:39: GPU Vendor: amd
+18:29:39: Device Name: AMD Radeon(TM) Graphics
+18:29:39: Driver Version: 2.0.233.0
+18:29:39:  * Fixed function pipeline: no
+18:29:39:  * Hardware generation of mipmaps: yes
+18:29:39:  * Texture blending: yes
+18:29:39:  * Anisotropic texture filtering: yes
+18:29:39:  * Dot product texture operation: yes
+18:29:39:  * Cube mapping: yes
+18:29:39:  * Hardware stencil buffer: yes
+18:29:39:    - Stencil depth: 8
+18:29:39:    - Two sided stencil support: yes
+18:29:39:    - Wrap stencil values: yes
+18:29:39:  * Hardware vertex / index buffers: yes
+18:29:39:  * 32-bit index buffers: no
+18:29:39:  * Vertex programs: no
+18:29:39:  * Number of floating-point constants for vertex programs: 256
+18:29:39:  * Number of integer constants for vertex programs: 256
+18:29:39:  * Number of boolean constants for vertex programs: 256
+18:29:39:  * Fragment programs: no
+18:29:39:  * Number of floating-point constants for fragment programs: 256
+18:29:39:  * Number of integer constants for fragment programs: 256
+18:29:39:  * Number of boolean constants for fragment programs: 256
+18:29:39:  * Geometry programs: no
+18:29:39:  * Number of floating-point constants for geometry programs: 256
+18:29:39:  * Number of integer constants for geometry programs: 256
+18:29:39:  * Number of boolean constants for geometry programs: 256
+18:29:39:  * Tessellation Hull programs: no
+18:29:39:  * Number of floating-point constants for tessellation hull programs: 256
+18:29:39:  * Number of integer constants for tessellation hull programs: 256
+18:29:39:  * Number of boolean constants for tessellation hull programs: 256
+18:29:39:  * Tessellation Domain programs: no
+18:29:39:  * Number of floating-point constants for tessellation domain programs: 256
+18:29:39:  * Number of integer constants for tessellation domain programs: 256
+18:29:39:  * Number of boolean constants for tessellation domain programs: 256
+18:29:39:  * Compute programs: yes
+18:29:39:  * Number of floating-point constants for compute programs: 256
+18:29:39:  * Number of integer constants for compute programs: 256
+18:29:39:  * Number of boolean constants for compute programs: 256
+18:29:39:  * Supported Shader Profiles: glsl glslvk hlsl hlslvk
+18:29:39:  * Texture Compression: yes
+18:29:39:    - DXT: yes
+18:29:39:    - VTC: no
+18:29:39:    - PVRTC: no
+18:29:39:    - ATC: no
+18:29:39:    - ETC1: no
+18:29:39:    - ETC2: no
+18:29:39:    - BC4/BC5: yes
+18:29:39:    - BC6H/BC7: yes
+18:29:39:    - ASTC: no
+18:29:39:  * Hardware Occlusion Query: no
+18:29:39:  * User clip planes: yes
+18:29:39:  * VET_UBYTE4 vertex element type: yes
+18:29:39:  * Infinite far plane projection: yes
+18:29:39:  * Hardware render-to-texture: yes
+18:29:39:  * Floating point textures: yes
+18:29:39:  * Non-power-of-two textures: yes
+18:29:39:  * 1d textures: yes
+18:29:39:  * Volume textures: yes
+18:29:39:  * Max Texture resolution (2D) 16384
+18:29:39:  * Max Texture resolution (3D) 4096
+18:29:39:  * Max Texture resolution (Cubemaps) 16384
+18:29:39:  * Multiple Render Targets: 1
+18:29:39:    - With different bit depths: no
+18:29:39:  * Point Sprites: yes
+18:29:39:  * Extended point parameters: yes
+18:29:39:  * Max Point Size: 256
+18:29:39:  * Vertex texture fetch: no
+18:29:39:  * Number of world matrices: 0
+18:29:39:  * Number of texture units: 32
+18:29:39:  * Stencil buffer depth: 8
+18:29:39:  * Number of vertex blend matrices: 0
+18:29:39:  * Render to Vertex Buffer : no
+18:29:39:  * Hardware Atomic Counters: no
+18:29:39:  * Shader 16-bit floating point (half): yes
+18:29:39:  * Compute max threads per threadgroup per axis: 1024, 1024, 1024
+18:29:39:  * Compute max threads per threadgroup total: 1024
+18:29:39:  * Using Reverse Z: yes
+18:29:39: Supported memory types for general buffer usage: 15
+18:29:39: Supported memory types for reading: 15
+18:29:39: VkDevice will use coherent memory buffers: true
+18:29:39: VkDevice will use non-coherent memory buffers: false
+18:29:39: VkDevice will use coherent memory for reading: true
+18:29:39: VkDevice read memory is coherent: true
+18:29:39: Trying presentMode = IMMEDIATE_KHR
+18:29:39: Chosen presentMode = IMMEDIATE_KHR
+18:29:39: surfaceCaps.currentTransform = 1
+18:29:39: DefaultWorkQueue('Root') initialising on thread main.
+18:29:39:  _hlmsMacroblockCreated 
+18:29:39:  _hlmsBlendblockCreated 
+18:29:39: Particle Renderer Type 'billboard' registered
+18:29:39: OverlayElementFactory for type Panel registered.
+18:29:39: OverlayElementFactory for type BorderPanel registered.
+18:29:39: OverlayElementFactory for type TextArea registered.
+18:29:39: Registering ResourceManager for type Font
+18:29:39: Creating resource group Essential
+18:29:39: Added resource location 'D:/OGRE_NEXT/ogre-next/Samples/Media/packs/DebugPack.zip' of type 'Zip' to resource group 'Essential'
+18:29:39: Added resource location 'D:/OGRE_NEXT/ogre-next/Samples/Media/packs/CornellBox.zip' of type 'Zip' to resource group 'Essential'
+18:29:39: Added resource location 'D:/OGRE_NEXT/ogre-next/Samples/Media/2.0/scripts/materials/Common' of type 'FileSystem' to resource group 'General'
+18:29:39: Added resource location 'D:/OGRE_NEXT/ogre-next/Samples/Media/2.0/scripts/materials/Common/Any' of type 'FileSystem' to resource group 'General'
+18:29:39: Added resource location 'D:/OGRE_NEXT/ogre-next/Samples/Media/2.0/scripts/materials/Common/GLSL' of type 'FileSystem' to resource group 'General'
+18:29:39: Added resource location 'D:/OGRE_NEXT/ogre-next/Samples/Media/2.0/scripts/materials/Common/GLSLES' of type 'FileSystem' to resource group 'General'
+18:29:39: Added resource location 'D:/OGRE_NEXT/ogre-next/Samples/Media/2.0/scripts/materials/Common/HLSL' of type 'FileSystem' to resource group 'General'
+18:29:39: Added resource location 'D:/OGRE_NEXT/ogre-next/Samples/Media/2.0/scripts/materials/Common/Metal' of type 'FileSystem' to resource group 'General'
+18:29:39: Added resource location 'D:/OGRE_NEXT/ogre-next/Samples/Media/Hlms/Common/Any' of type 'FileSystem' to resource group 'General'
+18:29:39: Added resource location 'D:/OGRE_NEXT/ogre-next/Samples/Media/Hlms/Common/GLSL' of type 'FileSystem' to resource group 'General'
+18:29:39: Added resource location 'D:/OGRE_NEXT/ogre-next/Samples/Media/Hlms/Common/HLSL' of type 'FileSystem' to resource group 'General'
+18:29:39: Added resource location 'D:/OGRE_NEXT/ogre-next/Samples/Media/Hlms/Common/Metal' of type 'FileSystem' to resource group 'General'
+18:29:39: Added resource location 'D:/OGRE_NEXT/ogre-next/Samples/Media/Compute/Algorithms/IBL' of type 'FileSystem' to resource group 'General'
+18:29:39: Added resource location 'D:/OGRE_NEXT/ogre-next/Samples/Media/Compute/Tools/Any' of type 'FileSystem' to resource group 'General'
+18:29:39: Creating resource group Popular
+18:29:39: Added resource location 'D:/OGRE_NEXT/ogre-next/Samples/Media/2.0/scripts/Compositors' of type 'FileSystem' to resource group 'Popular'
+18:29:39: Added resource location 'D:/OGRE_NEXT/ogre-next/Samples/Media/models' of type 'FileSystem' to resource group 'Popular'
+18:29:39: Added resource location 'D:/OGRE_NEXT/ogre-next/Samples/Media/materials/textures' of type 'FileSystem' to resource group 'Popular'
+18:29:39: Added resource location 'D:/OGRE_NEXT/ogre-next/Samples/Media/materials/textures/Cubemaps' of type 'FileSystem' to resource group 'Popular'
+18:29:39: Added resource location 'D:/OGRE_NEXT_MESH' of type 'FileSystem' to resource group 'Popular'
+18:29:39:  _hlmsSamplerblockCreated 
+18:29:39:  _hlmsSamplerblockCreated 
+18:29:39:  _hlmsSamplerblockCreated 
+18:29:39:  _hlmsSamplerblockCreated 
+18:29:39: Loading HlmsDiskCache from hlmsDiskCache1.bin
+18:29:39:  _hlmsMacroblockCreated 
+18:29:39:  _hlmsMacroblockCreated 
+18:29:39: Applying HlmsDiskCache 1
+18:29:39: WARNING: The cached Hlms is out of date. The templates have changed. We will parse the templates again. If you experience crashes or shader compiler errors, delete the cache
+18:29:40: Shader 100000000VertexShader_vs compiled successfully.
+18:29:40: Shader 100000000PixelShader_ps compiled successfully.
+18:29:40: Shader 100000001VertexShader_vs compiled successfully.
+18:29:40: Shader 100000001PixelShader_ps compiled successfully.
+18:29:40: Loading HlmsDiskCache from hlmsDiskCache3.bin
+18:29:40:  _hlmsMacroblockCreated 
+18:29:40:  _hlmsMacroblockCreated 
+18:29:40:  _hlmsBlendblockCreated 
+18:29:40: Applying HlmsDiskCache 3
+18:29:40: WARNING: The cached Hlms is out of date. The templates have changed. We will parse the templates again. If you experience crashes or shader compiler errors, delete the cache
+18:29:40: Shader 300000000VertexShader_vs compiled successfully.
+18:29:40: Shader 300000000PixelShader_ps compiled successfully.
+18:29:40: Shader 300000001VertexShader_vs compiled successfully.
+18:29:40: Shader 300000001PixelShader_ps compiled successfully.
+18:29:40: Parsing scripts for resource group Autodetect
+18:29:40: Finished parsing scripts for resource group Autodetect
+18:29:40: Creating resources for group Autodetect
+18:29:40: All done
+18:29:40: Parsing scripts for resource group Essential
+18:29:40: Parsing script Materials.material
+18:29:40: Parsing script CornellBox.material.json
+18:29:40:  _hlmsMacroblockCreated 
+18:29:40: Parsing script DebugFont.fontdef
+18:29:40: Finished parsing scripts for resource group Essential
+18:29:40: Creating resources for group Essential
+18:29:40: All done
+18:29:40: Parsing scripts for resource group General
+18:29:40: Parsing script Quad.program
+18:29:40: Shader Ogre/Compositor/Quad_vs_VK compiled successfully.
+18:29:40: Shader Ogre/Compositor/QuadCameraDir_vs_VK compiled successfully.
+18:29:40: Shader Ogre/Compositor/QuadCameraDirNoUV_vs_VK compiled successfully.
+18:29:40: Parsing script Atmosphere.material
+18:29:40: Shader Ogre/Atmo/NprSky_ps_VK compiled successfully.
+18:29:40:  _hlmsMacroblockCreated 
+18:29:40: Parsing script Copyback.material
+18:29:40: Shader Ogre/Copy/4xFP32_ps_VK compiled successfully.
+18:29:40:  _hlmsSamplerblockCreated 
+18:29:40:  _hlmsSamplerblockCreated 
+18:29:40:  _hlmsMacroblockCreated 
+18:29:40: Shader Ogre/Copy/4xFP32_2DArray_ps_VK compiled successfully.
+18:29:40:  _hlmsSamplerblockCreated 
+18:29:40:  _hlmsSamplerblockCreated 
+18:29:40: Shader Ogre/Copy/1xFP32_ps_VK compiled successfully.
+18:29:40: Shader Ogre/Resolve/1xFP32_Subsample0_ps_VK compiled successfully.
+18:29:40:  _hlmsSamplerblockCreated 
+18:29:40: Parsing script DepthUtils.material
+18:29:40: Shader Ogre/Depth/DownscaleMax_ps_VK compiled successfully.
+18:29:40:  _hlmsSamplerblockCreated 
+18:29:40:  _hlmsMacroblockCreated 
+18:29:40: Parsing script DPM.material
+18:29:40: Shader Ogre/DPM/CubeToDpm_4xFP16_ps_VK compiled successfully.
+18:29:40:  _hlmsSamplerblockCreated 
+18:29:40:  _hlmsSamplerblockCreated 
+18:29:40:  _hlmsMacroblockCreated 
+18:29:40: Parsing script DPSM.material
+18:29:40: Shader Ogre/DPSM/CubeToDpsm_ps_VK compiled successfully.
+18:29:40:  _hlmsSamplerblockCreated 
+18:29:40: Shader Ogre/DPSM/CubeToDpsm_Colour_ps_VK compiled successfully.
+18:29:40:  _hlmsSamplerblockCreated 
+18:29:40: Parsing script EsmGaussianBlurLogFilter.material
+18:29:40: Shader ESM/GaussianLogFilterH_ps_VK compiled successfully.
+18:29:40: Shader ESM/GaussianLogFilterV_ps_VK compiled successfully.
+18:29:40:  _hlmsSamplerblockCreated 
+18:29:40:  _hlmsSamplerblockCreated 
+18:29:40: Parsing script HiddenAreaMeshVr.material
+18:29:40: Shader Ogre/VR/HiddenAreaMeshVr_vs_VK compiled successfully.
+18:29:40: Shader Ogre/VR/HiddenAreaMeshVr_ps_VK compiled successfully.
+18:29:40:  _hlmsBlendblockCreated 
+18:29:40: Parsing script PccDepthCompressor.material
+18:29:40: Shader PccDepthCompressor_ps_VK compiled successfully.
+18:29:40:  _hlmsSamplerblockCreated 
+18:29:40:  _hlmsBlendblockCreated 
+18:29:40: Parsing script RadialDensityMask.material
+18:29:40: Shader Ogre/Compositor/RadialDensityMask_vs_VK compiled successfully.
+18:29:40: Shader Ogre/VR/RadialDensityMask_ps_VK compiled successfully.
+18:29:40:  _hlmsMacroblockCreated 
+18:29:40: Parsing script Sky.material
+18:29:40: Shader Ogre/Sky/Cubemap_ps_VK compiled successfully.
+18:29:40:  _hlmsSamplerblockCreated 
+18:29:40:  _hlmsSamplerblockCreated 
+18:29:40: Shader Ogre/Sky/Equirectangular_ps_VK compiled successfully.
+18:29:40:  _hlmsSamplerblockCreated 
+18:29:40: Parsing script EsmGaussianBlurLogFilter.material.json
+18:29:40:  _hlmsSamplerblockCreated 
+18:29:40: Parsing script Mipmaps.material.json
+18:29:40: Parsing script IBL.material.json
+18:29:40: Finished parsing scripts for resource group General
+18:29:40: Creating resources for group General
+18:29:40: All done
+18:29:40: Parsing scripts for resource group Internal
+18:29:40: Finished parsing scripts for resource group Internal
+18:29:40: Creating resources for group Internal
+18:29:40: All done
+18:29:40: Parsing scripts for resource group Popular
+18:29:40: Parsing script Material.material
+18:29:40: Compiler error: unknown error in Material.material(8): token class, rtshader_system, unrecognized.
+18:29:40: Compiler error: unknown error in Material.material(8): token "rtshader_system" is not recognized
+18:29:40: Parsing script InstancedStereo.compositor
+18:29:40: Parsing script IrradianceFieldRaster.compositor
+18:29:40: Parsing script LocalCubemaps.compositor
+18:29:40: Parsing script PbsMaterials.compositor
+18:29:40: Parsing script PlanarReflections.compositor
+18:29:40: Parsing script Refractions.compositor
+18:29:40: Parsing script ScreenSpaceReflections.compositor
+18:29:40: Parsing script ShadowMapDebugging.compositor
+18:29:40: Parsing script StaticShadowMaps.compositor
+18:29:40: Parsing script StencilTest.compositor
+18:29:40: Parsing script StereoRendering.compositor
+18:29:40: Parsing script TutorialSky_Postprocess.compositor
+18:29:40: Parsing script TutorialUav01_Setup.compositor
+18:29:40: Parsing script TutorialUav02_Setup.compositor
+18:29:40: Parsing script Tutorial_DynamicCubemap.compositor
+18:29:40: Parsing script Tutorial_OpenVRWorkspace.compositor
+18:29:40: Parsing script Tutorial_ReconstructPosFromDepth.compositor
+18:29:40: Parsing script Tutorial_Terrain.compositor
+18:29:40: Parsing script UvBaking.compositor
+18:29:40: Finished parsing scripts for resource group Popular
+18:29:40: Creating resources for group Popular
+18:29:40: All done
+18:29:40: Mesh: Loading Cube.003.mesh.
+18:29:40: Skeleton: Loading Cube.003.skeleton
+18:29:40: OGRE EXCEPTION(3:RenderingAPIException): Fixed Function pipeline is no longer allowed nor supported. The material Material must use shaders in HlmsLowLevel::calculateHashFor at D:\OGRE_NEXT\ogre-next\OgreMain\src\OgreHlmsLowLevel.cpp (line 159)
+18:29:40: OGRE EXCEPTION(3:RenderingAPIException): Fixed Function pipeline is no longer allowed nor supported. The material Material must use shaders in HlmsLowLevel::calculateHashFor at D:\OGRE_NEXT\ogre-next\OgreMain\src\OgreHlmsLowLevel.cpp (line 159)
+18:29:40: Couldn't apply datablock '[Value 0x00000024]' to this renderable. Using default one. Check previous log messages to see if there's more information.
+18:29:40: Can't find HLMS datablock material 'MirrorLike'. It may not be visible to this manager, try finding it by retrieving getHlms()->getDatablock()
+18:29:40:  _hlmsSamplerblockCreated 
+18:29:40: Font DebugFont using texture size 512x512
+18:29:40: Info: Freetype returned null for character 127 in font DebugFont
+18:29:40: Info: Freetype returned null for character 128 in font DebugFont
+18:29:40: Info: Freetype returned null for character 129 in font DebugFont
+18:29:40: Info: Freetype returned null for character 130 in font DebugFont
+18:29:40: Info: Freetype returned null for character 131 in font DebugFont
+18:29:40: Info: Freetype returned null for character 132 in font DebugFont
+18:29:40: Info: Freetype returned null for character 133 in font DebugFont
+18:29:40: Info: Freetype returned null for character 134 in font DebugFont
+18:29:40: Info: Freetype returned null for character 135 in font DebugFont
+18:29:40: Info: Freetype returned null for character 136 in font DebugFont
+18:29:40: Info: Freetype returned null for character 137 in font DebugFont
+18:29:40: Info: Freetype returned null for character 138 in font DebugFont
+18:29:40: Info: Freetype returned null for character 139 in font DebugFont
+18:29:40: Info: Freetype returned null for character 140 in font DebugFont
+18:29:40: Info: Freetype returned null for character 141 in font DebugFont
+18:29:40: Info: Freetype returned null for character 142 in font DebugFont
+18:29:40: Info: Freetype returned null for character 143 in font DebugFont
+18:29:40: Info: Freetype returned null for character 144 in font DebugFont
+18:29:40: Info: Freetype returned null for character 145 in font DebugFont
+18:29:40: Info: Freetype returned null for character 146 in font DebugFont
+18:29:40: Info: Freetype returned null for character 147 in font DebugFont
+18:29:40: Info: Freetype returned null for character 148 in font DebugFont
+18:29:40: Info: Freetype returned null for character 149 in font DebugFont
+18:29:40: Info: Freetype returned null for character 150 in font DebugFont
+18:29:40: Info: Freetype returned null for character 151 in font DebugFont
+18:29:40: Info: Freetype returned null for character 152 in font DebugFont
+18:29:40: Info: Freetype returned null for character 153 in font DebugFont
+18:29:40: Info: Freetype returned null for character 154 in font DebugFont
+18:29:40: Info: Freetype returned null for character 155 in font DebugFont
+18:29:40: Info: Freetype returned null for character 156 in font DebugFont
+18:29:40: Info: Freetype returned null for character 157 in font DebugFont
+18:29:40: Info: Freetype returned null for character 158 in font DebugFont
+18:29:40: Info: Freetype returned null for character 159 in font DebugFont
+18:29:40: Info: Freetype returned null for character 160 in font DebugFont
+18:29:40:  _hlmsBlendblockCreated 
+18:29:40:  _hlmsSamplerblockCreated 
+18:29:40: Shader 100000002VertexShader_vs compiled successfully.
+18:29:40: Shader 100000002PixelShader_ps compiled successfully.
+18:29:40: Shader 100000003VertexShader_vs compiled successfully.
+18:29:41: Shader 100000003PixelShader_ps compiled successfully.
+18:29:41: Trying presentMode = IMMEDIATE_KHR
+18:29:41: Chosen presentMode = IMMEDIATE_KHR
+18:29:41: surfaceCaps.currentTransform = 1
